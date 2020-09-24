@@ -1,0 +1,11 @@
+{% for act in acts %}
+    {% for term in act.terms %}
+        
+       {% if term.parent > 0 and term.parent == 66 %}
+        <span class="font1 bk4 color3 brd3 brd-c7 pt5 pb5 pl20 pr10 r20 d-inline-block  t-a-center">   
+            {{term.name}}
+        </span>
+   
+        {% endif %}
+    {% endfor %}
+{% endfor %}

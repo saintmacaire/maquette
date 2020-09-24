@@ -1,0 +1,20 @@
+{% for item in posts if item.id == 179 %}
+<a id="article-anch" class="anch col-md-12 d-none d-md-block"></a>
+<div class="container-fluid">
+    <div class="row p-30 ">
+        <h1 class="bk3 color4 col-8 ml-10 mb30">
+                <img src="{{ theme.link }}/assets/img/armor-white.png" class="w-15 p-10 d-inline-block" alt="armes de {{ site.title }} ">{{ item.title }}
+        </h1>
+        <div class="col-12 col-md-6 p-30 mt30">
+           <div class="w-80 m-a">{{ item.get_field('content') }}</div> 
+            {% include 'partial/anchors/anchor2-black.twig' %}
+        </div>
+        <div class="col-12 col-md-6 p-40">
+            <img src=" {{ item.thumbnail.src }} " alt=" {{ item.thumbnail.alt }} " class="shadow d-block w-100 ">
+        </div>
+    </div>
+</div>
+
+
+    
+{% endfor %}

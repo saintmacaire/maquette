@@ -1,0 +1,52 @@
+{% for item in posts if item.id == 871 %}
+<div class="container-fluid url7 parallax">
+    <a id="article-anch7" class="anch col-md-12 d-none d-md-block"></a>
+    <div class="row p-30 bk5 mb-10 mt-10 white">
+        <h1 class=" col-8 color4 ml-10  mb30">
+                <span class="p-10 bk3"><img src="{{ theme.link }}/assets/img/armor-white.png" class="w-10 p-30 d-inline-block" alt="armes de {{ site.title }} ">{{ item.title }}</span>
+        </h1>
+        <div class="col-12 col-md-4  mt30 ">
+           <div class="w-80 m-a bk3 p-30">{{ item.get_field('content') }}</div> 
+           
+            
+        </div>
+        <div class="col-12 col-md-3 m-a  bk5 p-20 mt-10 ">
+        {% if item.get_field('service') %}
+            {% for pub in item.get_field('service') %}
+                <a href=" {{ pub.link }} " class="col-12 col-md-6 p-10">
+                <h3 class="color4 p-10">
+                    {{ pub.title }}
+                </h3>
+                <div class="w-80 m-a">
+                    <img src=" {{ pub.thumbnail.src }} " alt="{{ pun.thumbnail.alt }}" class="r20 w-100 d-block">
+                </div>
+                <p class="t-a-center mt20 white">Maison de retraite</p>
+
+                </a>
+            {% endfor %}    
+        {% endif %}
+        </div> 
+        <div class="offset-md-1 d-none d-md-block"></div>
+        <div class="col-12 col-md-2 m-a  bk5 p-20 mt-10 mb-10 m-a">
+        {% if item.get_field('acteur') %}
+            {% for act in item.get_field('acteur') %}
+                <a href=" {{ act.link }} " class="col-12 col-md-6 p-10">
+                <h3 class="color4 p-10">
+                    {{ act.title }}
+                </h3>
+                <div class="w-80 m-a">
+                    <img src=" {{ act.thumbnail.src }} " alt="{{ act.thumbnail.alt }}" class="r20 w-100 d-block">
+                </div>
+                <p class="t-a-center mt20 white">association</p>
+
+                </a>
+            {% endfor %}    
+        {% endif %}
+        </div>
+        {% include 'partial/anchors/anchor7.twig' %}
+    </div>
+</div>
+
+
+    
+{% endfor %}

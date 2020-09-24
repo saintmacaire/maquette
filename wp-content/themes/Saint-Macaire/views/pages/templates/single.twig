@@ -1,0 +1,226 @@
+{% extends 'base.twig' %}
+{% block tmp_slide %}
+    {% include 'partial/blocs/slider.twig' %}
+{% endblock %}
+{% block content %}
+<div class="container-fluid">
+    <a id="article-anch" class="anch col-md-12 d-none d-md-block"></a>
+    <h1>
+        <span class="p-10 m-a bk3 color4">
+            {{ post.title }}
+        </span>
+    </h1>
+    <div class="row">
+        <div class="col-12 col-md-6 p-10">
+            <div><img src=" {{post.thumbnail.src}} " alt=" {{ post.thumbnail.alt }} " class="d-block wmax-100 hmax70vh m-a p-10"></div>
+            {% if post.get_field('articles_associes') %}
+                <h2 class="mt-10 mb-10"> 
+                    <span class="p-20 bk7 white">
+                        <i class="fal fa-newspaper"></i> actualités associées 
+                    </span>
+                </h2>
+                <div class="row p-10">
+                    {% for item in post.get_field('articles_associes') %}
+                   
+                        <a href=" {{ item.link }} " class="ressources-line p-10 col-12 mb10 row">
+                            <div class="col-12 col-md-2"><img class="w-100 d-block" src="{{ item.thumbnail.src }}" alt="{{ item.thumbnail.alt }}"></div>
+                            <p class="p-10 col-12 col-md-10 mt10">{{ item.post_title }}</p>
+                        </a>
+                    {% endfor %} 
+
+                </div>
+            {% endif %}
+            
+        </div>
+        <div class="col-12 col-md-6 p-30">
+            <div class="hmin50vh pt-10">
+                <p class="p-10 w-50 m-a"> {{ post.get_field('content') }} </p>
+                {% if post.get_field('pdf') %}
+                    {# <a href="{{ post.get_field('pdf') }}" target="_blank" class="color3">télécharger le pdf</a> #}
+                    <a href="{{ post.get_field('pdf') }}" target="_blank" class="color3">télécharger le document</a>
+                {% endif %}
+            </div>
+            {% if post.get_field('lieu') %}
+                <h2 class="mt20"> 
+                    <span class="p-20 bk7 white">
+                        <img class="w-10 d-inline" src="{{ theme.link}}/assets/img/MH-white.png" alt=""> lieux associés 
+                    </span>
+                </h2>
+                <div class="row p-10">
+                    {% for item in post.get_field('lieu') %}
+                
+                        <a href=" {{ item.link }} " class="col-12 mb10 toile col-md-4">
+                            <img class="w-100 d-block" src="{{ item.thumbnail.src }}" alt="{{ item.thumbnail.alt }}">
+                            <p class="bk7 white p-10 caption7">{{ item.post_title }}</p>
+                        </a>
+                    {% endfor %} 
+
+                </div>
+            {% endif %}
+        </div>
+        {% if post.get_field('acteur') %}
+            <div class="col-12 col-md-6 p-10">
+                <h2 class="mt-10 mb-10"> 
+                    <span class=" p-20 bk7 white">
+                        <i class="fal fa-handshake"></i> Acteurs associés
+                    </span>
+                </h2>   
+                {% for item in post.get_field('acteur') %}
+                
+                    <a href=" {{ item.link }} " class="ressources-line p-10 col-12 mb10 row">
+                        <div class="col-12 col-md-2"><img class="w-100 d-block" src="{{ item.thumbnail.src }}" alt="{{ item.thumbnail.alt }}"></div>
+                        <p class="p-10 col-12 col-md-10 mt10">{{ item.post_title }}</p>
+                    </a>
+                {% endfor %} 
+
+            </div>
+        {% endif %}
+        {% if post.get_field('event') %}
+            <div class="col-12 col-md-6 p-10">
+                <h2 class="mt-10 mb-10"> 
+                    <span class="p-20 bk7 white">
+                        <i class="fal fa-newspaper"></i> Évènements associés 
+                    </span>
+                </h2>
+                {% for item in post.get_field('event') %}
+            
+                    <a href=" {{ item.link }} " class="ressources-line p-10 col-12 mb10 row">
+                        <div class="col-12 col-md-2"><img class="w-100 d-block" src="{{ item.thumbnail.src }}" alt="{{ item.thumbnail.alt }}"></div>
+                        <p class="p-10 col-12 col-md-10 mt10">{{ item.post_title }}</p>
+                    </a>
+                {% endfor %} 
+
+            </div>
+        {% endif %}
+        
+        {% if post.get_field('project') %}
+            <div class="col-12 col-md-6 p-10">
+                <h2 class="mt-10 mb-10"> 
+                    <span class="p-20 bk7 white">
+                        <i class="fal fa-newspaper"></i> Réalisations associés 
+                    </span>
+                </h2>
+                {% for item in post.get_field('project') %}
+            
+                    <a href=" {{ item.link }} " class="ressources-line p-10 col-12 mb10 row">
+                        <div class="col-12 col-md-2"><img class="w-100 d-block" src="{{ item.thumbnail.src }}" alt="{{ item.thumbnail.alt }}"></div>
+                        <p class="p-10 col-12 col-md-10 mt10">{{ item.post_title }}</p>
+                    </a>
+                {% endfor %} 
+
+            </div>
+        {% endif %}
+        {% if post.get_field('service') %}
+            <div class="col-12  p-10">
+                <h2 class="mt-10 mb-10"> 
+                    <span class="p-20 bk7 white">
+                        <i class="fal fa-newspaper"></i> Services publics associés 
+                    </span>
+                </h2>
+                <div class="row bk6 white p-10">
+                    {% for item in post.get_field('service') %}
+                        <a href=" {{ item.link }} " class="m-a resources-line p-10 col-12 col-md-4 mb10 row white">
+                            <div class="col-12 col-md-4"><img class="w-100 d-block" src="{{ item.thumbnail.src }}" alt="{{ item.thumbnail.alt }}"></div>
+                            <p class="p-10 col-12 col-md-8 mt10">{{ item.post_title }}</p>
+                        </a>
+                    {% endfor %} 
+                </div>
+
+            </div>
+        {% endif %}
+        {% if post.get_field('elu_associe') %}
+           
+                
+                <div class="col-12  p-10">
+                    <h2 class="mt-10 mb-10"> 
+                        <span class="p-20 bk7 white">
+                            <i class="fal fa-newspaper"></i> Élus référents
+                        </span>
+                    </h2>
+                    <div class="row container m-a bk6 white p-10">
+                    {% for elu in post.get_field('elu_associe') %}
+                            
+                        {% for term in elu.terms if term.taxonomy == 'member-type' and term.name != 'Le conseil municipal' %}
+                            
+                            
+                            <div id="adjoint-{{ loop.index }}" class="row toile2 modal wmax-90 m-a mt-10 modal-prime">
+                           
+                                    <div class="row">
+                                        <a id="article-anch11" class="anch col-md-12 d-none mb-10 d-md-block"></a>
+                                        {# <a id="article-anch12" class="anch col-md-12 d-none d-md-block"></a>  #}
+                                        
+                                        <div class="offset-md-1 d-none d-md-block"></div>
+                                        <div class="col-12 col-md-6">
+                                            <div>
+                                                <img src="{{ elu.thumbnail.src }}" alt="{{ elu.thumbnail.alt }}" class="r-50 brd2 brd-c3 r10 p-10 m-a wmax-100 d-block hmax80vh ">
+                                            </div>
+                                            <div class="green ml10">
+                                                <h2 class="color4 mt20"> écrire au {{  term.name }} </h2>
+                                                {{ elu.get_field('formulaire')|shortcodes }}
+                                            </div>
+                                        </div>
+                                        <div class="offset-md-1 d-none d-md-block"></div>
+                                        <div class="r10 col-12 col-md-4 row p+30 brd2 brd-white bk3 r20 hmax70vh">
+                                            <a href="#" class="col-12 p-10 white t10 t-a-left toile2" rel="modal:close"><i class="fal fa-times"></i></a>
+                                            <h2 class="color4  d-none d-md-block font2">
+                                                <img src="{{ theme.link }}/assets/img/armor-white.png" alt="" class="d-inline-block  w-30">{{ elu.get_field('prenom')|capitalize }} {{ elu.get_field('nom')|upper }}
+                                            </h2>
+                                            <h5 class="white w-100 t-a-center d-none d-md-block">
+                                                {{ term.name }} de Saint-Macaire
+                                            </h5>
+                                            <ul class="white row">
+                                            <p class="col-8 col-md-4 white p-10 underline"> {{ 'délégations:'|capitalize }} </p>
+                                            {% for com in elu.terms if com.taxonomy == 'member-com'  %}
+                                                <li class="t-a-center col-12 col-md-4"><span class="green font1">{{ com.name }}</span></li>
+                                            {% endfor %}
+                                            <hr class="brd-c4 d-none d-md-block col-md-4">
+                                            </ul>
+                                        </div>
+                                        
+                                        
+                                    </div>
+                                    <div class="h10 mt-10 white row">
+                                        
+                                        <hr class="brd-green col-md-3 d-none d-md-block"> 
+                                        <div class="col-md-4 d-none d-md-block">
+                                            
+                                                <img src="{{ theme.link }}/assets/img/armor-white.png" alt="" class="w-10 d-block"> - tous droits réservés: saintmacaire.fr ®
+                                        </div>
+                                        <hr class="brd-green col-md-3 d-none d-md-block">
+                                            
+                                    </div>
+                                </div>
+                            
+                                <!-- Link to open the modal -->
+                            
+                            
+                                <a href="#adjoint-{{ loop.index }}" class="col-8 col-md-3 m-a toile2 mb30" rel="modal:open">
+                                    <div class="w-80 m-a">
+                                        <img class="d-block w-100 r-50 brd5 brd-c4" src=" {{ elu.thumbnail.src }} " alt="photo de {{ elu.thumbnail.alt }} ">
+                                    </div>
+                                    <div class="white bk3 caption2">
+                                        <h4 class=" white">
+                                            {{ elu.prenom }} {{ elu.nom }}
+                                        </h4>
+                                        
+                                        <ul class="white w-100">
+                                        {% for com in elu.terms if com.taxonomy == 'member-com'  %}
+                                            <li class="t-a-center w-100"><span class="green font1">{{ com.name }}</span></li>
+                                        {% endfor %}
+                                        </ul>
+                                    </div>
+                                </a>
+                           
+                        {% endfor %}
+                            
+                    {% endfor %}
+                    </div>
+
+                </div>
+
+            
+        {% endif %}
+        
+    </div>
+</div>
+{% endblock %}

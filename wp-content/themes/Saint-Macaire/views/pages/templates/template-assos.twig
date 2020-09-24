@@ -1,0 +1,429 @@
+{% extends 'base.twig' %}
+{% block slider %}
+    {% include 'partial/blocs/slider.twig' %}
+{% endblock %}
+{% block content %}
+<div class="container-fluid url4 parallax2 p-30">
+    <a id="article-anch" class="anch"></a>
+    <h1 class="m-a mb20 ">
+        <img src="{{ theme.link }}/assets/img/armor-black.png" alt="" class="d-inline-block w-10 p-30"> 
+        <span class="bk3 color4 p-10 shadow"> {{ post.title }} </span>
+    </h1>
+    {% if post.terms %}
+        <div class="w-80 d-flex justify-content-around flex-wrap m-a mb20 brd-c6 brd-t1 brd-l1 p-10">
+            {% for term in post.terms if term.parent == 0 %}
+                <p class="color3 t-a-center wmax-20 m-a ml10 mb10">
+                    {{ term.name|capitalize }}
+                </p>
+            {% endfor %}
+        </div>
+        <div class="w-80 d-flex justify-content-around flex-wrap m-a mb20 brd-c3 brd-b1 brd-r1 p-10">
+            {% for term in post.terms if term.parent != 0 %}
+                <p class="color8 wmax-40 font2 t7 m-a ml10 mb10">
+                    {{ term.name|capitalize }}
+                </p>
+            {% endfor %}
+        </div>
+    {% endif %}
+    <div class="row">
+        <div class="col-6 m-a col-md-3">
+            <img src=" {{ post.thumbnail.src }} " alt=" {{ post.thumbnail.alt }} " class=" r-50 shadow brd3 brd-c5 w-100 d-block">
+        </div>
+        <div class="offset-md-1 d-none d-block"></div>
+        <div class="col-12 col-md-8  p-10">
+            {{ post.get_field('content') }}
+        </div>
+        <div class="color3 row">
+            {% include 'partial/anchors/anchor2.twig' %}
+        </div>
+    </div>
+    {% include 'partial/blocs/calendar2.twig' %}
+   {% if post.get_field('iframe') %}
+        <h2>
+            <span class="brd-b1 brd-l1 brd-c3 color6 p-10"></span>
+        </h2>
+        <div class="container m-a w-60 p-30">
+            {{ post.get_field('iframe') }}
+        </div>
+    {% endif %} 
+    {% if post.get_field('lieu_associe').gals|join %}
+        <div class="container-fluid row p-20">
+            {% for gal in gals if post.get_field('lieu_associe').gals|join -  gal.id == 0 %}
+                {% include 'partial/blocs/gals-act.twig' %}
+            {% endfor %}   
+        </div>
+    {% endif %}
+    <div class="container mt-10">
+        <a href="" id="article-anch2" class="anch"></a>
+        <div class="row">
+            {% if post.get_field('lieu_associe') %}
+            
+                <div class="offset-md-1 d-none d-md-block"></div>
+                <div class="col-12 col-md-6 color3 row ">
+                    {{ post.get_field('lieu_associe').map }}
+                    {% include 'partial/anchors/anchor3.twig' %}
+                </div>
+            {% else %}
+                {# <div class="offset-md-1 d-none d-md-block"></div> #}
+                <div class="col-12 col-md-6 color3 row ">
+                    {{ post.get_field('map') }}
+                    {% include 'partial/anchors/anchor3.twig' %}
+                </div>   
+            {% endif %}
+            <div class="col-12 {% if post.get_field('lieu_associe') or post.get_field('map') %} col-md-5 {% endif %} p-10 m-a">
+                <h2 class="color3 op7"> {{'Contacter'|upper}} {{ post.title|upper }} </h2>
+                {% if post.get_field('prenom_referent') or post.get_field('nom_referent') %}
+                
+                    <p class=" w-60  r10 bk3 color4 p-10">
+                        
+                    <span class="bold">
+                            {{ post.get_field('prenom_referent') }} {{ post.get_field('nom_referent')|upper }} 
+                    </span>
+                    
+                    </p>
+                
+                {% endif %}
+                {% if post.get_field('lieu_associe') == null %}
+                    {% if post.get_field('ad1') or post.get_field('commune') %}
+                        <p class=" color7">
+                            {{ post.get_field('ad1') }}
+                        </p>
+                        <p class=" color7">
+                            {% if post.get_field('ad2') %}
+                                {{ post.get_field('ad2') }} 
+                            {% endif %}
+                        </p>
+                        <p class=" color7">
+                            <span class="bold">
+                                {{ post.get_field('cp') }} 
+                            </span>
+                            <span class="bold">
+                                {{ post.get_field('commune') }}
+                            </span>
+                        </p>
+                    {% endif %}
+                    {% if post.get_field('tel') %}
+                        <p class="color7 ">
+                            <i class="color3 fal fa-phone"></i>
+                            <span class="bold">
+                                    {{ post.get_field('tel') }} 
+                            </span>
+                        </p>
+                    {% endif %}
+                    {% if post.get_field('site_web') %}
+                        <p class="color7">
+                            <i class="color3 fal fa-globe"></i>
+                            <a href=" {{ post.get_field('site_web') }}  " target="_blank" class="bold">
+                                site web
+                            </a>
+                        </p>
+                    {% endif %}
+                    {% if post.get_field('email') %}
+                        <p class="color7">
+                            <i class="color3 fal fa-envelope"></i>
+                            <a href=" mailto:{{ post.get_field('email') }}  " target="_blank" class="bold">
+                                courriel
+                            </a>
+                        </p>
+                    {% endif %}
+                {% elseif post.get_field('lieu_associe') %}
+                        {% if post.get_field('lieu_associe')._adresse_ligne_1 %}
+                
+                            <p class=" color7">
+                                {{ post.get_field('lieu_associe').adresse_ligne_1 }}
+                            </p>
+                        {% endif %}
+
+                        {% if post.get_field('lieu_associe').adresse_ligne_1 %}
+                            <p class=" color7">
+                            {% if post.get_field('lieu_associe').adresse_ligne_2 %}
+                                {{ post.get_field('lieu_associe').adresse_ligne_2 }} 
+                            {% endif %}
+                            </p>
+                        {% endif %}
+                            <p class=" color7">
+                                <span class="bold">
+                                    {{ post.get_field('lieu_associe').cp }} 
+                                </span>
+                                <span class="bold">
+                                    {{ post.get_field('lieu_associe').commune }}
+                                </span>
+                            </p>
+                        {% if post.get_field('lieu_associe').tel %}
+                            <p class="color7 ">
+                                <i class="color3 fal fa-phone"></i>
+                            <span class="bold">
+                                    {{ post.get_field('lieu_associe').tel }} 
+                            </span>
+                            </p>
+                        {% endif %}
+                        {% if post.get_field('lieu_associe').site_web %}
+                            <p class="color7">
+                                <i class="color3 fal fa-globe"></i>
+                                <a href=" {{ post.get_field('lieu_associe').site_web }}  " target="_blank" class="bold">
+                                    site web
+                                </a>
+                            </p>
+                        {% endif %}
+                        {% if post.get_field('lieu').email %}
+                            <p class="color7">
+                                <i class="color3 fal fa-envelope"></i>
+                                <a href=" mailto:{{ post.get_field('lieu_associe').email }}  " target="_blank" class="bold">
+                                    courriel
+                                </a>
+                            </p>
+                        {% endif %}
+                   {% if post.get_field('lieu_associe').no_hours == 0 %}
+                        {% if post.get_field('lieu_associe').horaires_reguliers == 1 %}
+                            <h3 class="p-10 black brd-l1 brd-b1 brd-c3 w-90 m-a font2">
+                                Ouvert du <span class="bold color3"> {{ post.get_field('lieu_associe').du }} </span> au <span class=" bold color3"> {{ post.get_field('lieu_associe').au }}</span>
+                                <br>
+                                {{ post.get_field('lieu_associe').ouverture_am|date('H:i')}} 
+                                {% if post.get_field('lieu_associe').fermeture_am %} 
+                                - {{ post.get_field('lieu_associe').fermeture_am|date('H:i') }} 
+                                {% endif %}
+                                /
+                                {% if post.get_field('lieu_associe').fermeture_am %} 
+                                {{ post.get_field('lieu_associe').ouverture_pm|date('H:i') }} -  
+                                {% endif %}
+                                {{ post.get_field('lieu_associe').fermeture_pm|date('H:i') }} 
+                            </h3>
+                        {% elseif post.get_field('lieu_associe').horaires_reguliers == 0 %}
+                            <div class="col-12 p-10">
+                                <table class="w-100 m-a t-a-center">
+                                    <thead>
+                                        <tr>
+                                            <th  colspan="10" class="center">
+                                                <h5 class="color6">
+                                                    Horaires d'ouverture
+                                                </h2>
+                                            </th>
+                                            <tr>
+                                            <th>  </th>
+                                            <th class="W-50 t-a-center">matin</th>
+                                            <th class="W-50 t-a-center">après-midi</th>
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="p-10">
+                                                Lundi
+                                            </td>
+                                            <td class="W-50 t-a-center">
+
+                                                {% if post.get_field('lieu_associe').lundi_o1 %}
+                                                
+                                                    {{ post.get_field('lieu_associe').lundi_o1|date('H:i') }}  
+                                                    {% if post.get_field('lieu_associe').lundi_f1 %}
+                                                        - {{ post.get_field('lieu_associe').lundi_f1|date('H:i') }}
+                                                    {% endif %}
+                                                {% else %}
+                                                    <i class="color3">fermé</i>
+                                                        
+                                                {% endif %}
+                                            
+                                            </td>
+                                            <td class="W-50 t-a-center">
+                                            {% if post.get_field('lieu_associe').lundi_f2 %}
+                                                
+                                                    {% if post.get_field('lieu_associe').lundi_o2 %}
+                                                    {{ post.get_field('lieu_associe').lundi_o2|date('H:i') }} -  
+                                                    {% endif %}
+                                                    {{ post.get_field('lieu_associe').lundi_f2|date('H:i') }}
+                                            {% else %}
+                                                <i class="color3">fermé</i>
+                                                    
+                                            {% endif %}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class=" p-10">
+                                                Mardi  
+                                            </td>
+                                            <td class="W-50 t-a-center">
+                                            {% if post.get_field('lieu_associe').mardi_o1 %}
+                                                
+                                                    {{ post.get_field('lieu_associe').mardi_o1|date('H:i') }}  
+                                                    {% if post.get_field('lieu_associe').mardi_f1 %}
+                                                        - {{ post.get_field('lieu_associe').mardi_f1|date('H:i') }}
+                                                    {% endif %}
+                                            {% else %}
+                                                <i class="color3">fermé</i>
+                                                    
+                                            {% endif %}
+                                            
+                                            </td>
+                                            <td class="W-50 t-a-center">
+                                        {% if post.get_field('lieu_associe').mardi_f2 %}
+                                                
+                                                    {% if post.get_field('lieu_associe').mardi_o2 %}
+                                                    {{ post.get_field('lieu_associe').mardi_o2|date('H:i') }} -  
+                                                    {% endif %}
+                                                    {{ post.get_field('lieu_associe').mardi_f2|date('H:i') }}
+                                            {% else %}
+                                                <i class="color3">fermé</i>
+                                                    
+                                            {% endif %}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class=" p-10">
+                                                Mercredi  
+                                            </td>
+                                            <td class="W-50 t-a-center">
+                                            {% if post.get_field('lieu_associe').mercredi_o1 %}
+                                                
+                                                    {{ post.get_field('lieu_associe').mercredi_o1|date('H:i') }}  
+                                                    {% if post.get_field('lieu_associe').mercredi_f1 %}
+                                                        - {{ post.get_field('lieu_associe').mercredi_f1|date('H:i') }}
+                                                    {% endif %}
+                                            {% else %}
+                                                <i class="color3">fermé</i>
+                                                    
+                                            {% endif %}
+                                        
+                                            </td>
+                                            <td class="W-50 t-a-center">
+                                            {% if post.get_field('lieu_associe').mercredi_f2 %}
+                                                
+                                                    {% if post.get_field('lieu_associe').mercredi_o2 %}
+                                                    {{ post.get_field('lieu_associe').mercredi_o2|date('H:i') }} -  
+                                                    {% endif %}
+                                                    {{ post.get_field('lieu_associe').mercredi_f2|date('H:i') }}
+                                            {% else %}
+                                                <i class="color3">fermé</i>
+                                                    
+                                            {% endif %}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class=" p-10">
+                                                Jeudi  
+                                            </td>
+                                            <td class="W-50 t-a-center">
+                                            {% if post.get_field('lieu_associe').jeudi_o1 %}
+                                                
+                                                    {{ post.get_field('lieu_associe').jeudi_o1|date('H:i') }}  
+                                                    {% if post.get_field('lieu_associe').jeudi_f1 %}
+                                                        - {{ post.get_field('lieu_associe').jeudi_f1|date('H:i') }}
+                                                    {% endif %}
+                                            {% else %}
+                                                <i class="color3">fermé</i>
+                                                    
+                                            {% endif %}
+                                            
+                                            </td>
+                                            <td class="W-50 t-a-center">
+                                            {% if post.get_field('lieu_associe').jeudi_f2|date('H:i') %}
+                                                
+                                                    {% if post.get_field('lieu_associe').jeudi_o2 %}
+                                                    {{ post.get_field('lieu_associe').jeudi_o2|date('H:i') }} -  
+                                                    {% endif %}
+                                                    {{ post.get_field('lieu_associe').jeudi_f2|date('H:i') }}
+                                            {% else %}
+                                                <i class="color3">fermé</i>
+                                                    
+                                            {% endif %}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class=" p-10">
+                                                Vendredi  
+                                            </td>
+                                            <td class="W-50 t-a-center">
+                                            {% if post.get_field('lieu_associe').vendredi_o1 %}
+                                                
+                                                    {{ post.get_field('lieu_associe').vendredi_o1|date('H:i') }}  
+                                                    {% if post.get_field('lieu_associe').vendredi_f1 %}
+                                                        - {{ post.get_field('lieu_associe').vendredi_f1|date('H:i') }}
+                                                    {% endif %}
+                                            {% else %}
+                                                <i class="color3">fermé</i>
+                                                    
+                                            {% endif %}
+                                            
+                                            </td>
+                                        
+                                            
+                                            <td class="W-50 t-a-center">
+                                            {% if post.get_field('lieu_associe').vendredi_f2 %}
+                                                
+                                                    {% if post.get_field('lieu_associe').vendredi_o2|date('H:i') %}
+                                                    {{ post.get_field('lieu_associe').vendredi_o2 }} -  
+                                                    {% endif %}
+                                                    {{ post.get_field('lieu_associe').vendredi_f2|date('H:i') }}
+                                            {% else %}
+                                                <i class="color3">fermé</i>
+                                            {% endif %}
+                                            </td>
+                                            </tr>
+                                            <tr>
+                                            <td class=" p-10">
+                                                Samedi 
+                                            </td>
+                                            <td class="W-50 t-a-center">
+                                            {% if post.get_field('lieu_associe').samedi_o1 %}
+                                                
+                                                    {{ post.get_field('lieu_associe').samedi_o1|date('H:i') }}  
+                                                    {% if post.get_field('lieu_associe').samedi_f1 %}
+                                                        - {{ post.get_field('lieu_associe').samedi_f1|date('H:i') }}
+                                                    {% endif %}
+                                            {% else %}
+                                                <i class="color3">fermé</i>
+                                                    
+                                            {% endif %}
+                                            
+                                            </td>
+                                            <td class="W-50 t-a-center">
+                                            {% if post.get_field('lieu_associe').samedi_f2 %}
+                                                
+                                                    {% if post.get_field('lieu_associe').samedi_o2 %}
+                                                    {{ post.get_field('lieu_associe').samedi_o2|date('H:i') }} -  
+                                                    {% endif %}
+                                                    {{ post.get_field('lieu_associe').samedi_f2|date('H:i') }}
+                                            {% else %}
+                                                <i class="color3">fermé</i>
+                                            {% endif %}
+                                            </td>
+                                            </tr>
+                                            <tr>
+                                            <td class=" p-10">
+                                                Dimanche 
+                                            </td>
+                                            <td class="W-50 t-a-center">
+                                            {% if post.get_field('lieu_associe').dimanche_o1 %}
+                                                
+                                                    {{ post.get_field('lieu_associe').dimanche_o1|date('H:i') }}  
+                                                    {% if post.get_field('lieu_associe').dimanche_f1 %}
+                                                        - {{ post.get_field('lieu_associe').dimanche_f1|date('H:i') }}
+                                                    {% endif %}
+                                            {% else %}
+                                                <i class="color3">fermé</i>
+                                                    
+                                            {% endif %}
+                                            
+                                            </td>
+                                            <td class="W-50 t-a-center">
+                                            {% if post.get_field('lieu_associe').dimanche_f2 %}
+                                                
+                                                    {% if post.get_field('lieu_associe').dimanche_o2 %}
+                                                    {{ post.get_field('lieu_associe').dimanche_o2|date('H:i') }} -  
+                                                    {% endif %}
+                                                    {{ post.get_field('lieu_associe').dimanche_f2|date('H:i') }}
+                                            {% else %}
+                                                <i class="color3">fermé</i>
+                                            {% endif %}
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        {% endif %}
+                    {% endif %} 
+                {% endif %}
+            </div>
+        </div> 
+    </div>   
+</div>
+{% endblock %}

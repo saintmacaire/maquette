@@ -1,0 +1,57 @@
+{% for item in posts if item.id == 228 %}
+<a id="article-anch2" class="anch col-md-12 d-none d-md-block"></a>
+<div class="container-fluid">
+    <div class="row p-30 ">
+        <div class="offset-2 offset-md-4"></div>
+        <h1 class="bk3 color4 col-8 col-md-5 m-a mb30">
+                <img src="{{ theme.link }}/assets/img/armor-white.png" class="w-20 p-10 d-inline-block" alt="armes de {{ site.title }} ">{{ item.title }}
+        </h1>
+        <div class="offset-2 offset-md-3"></div>
+        <div class="col-12 col-md-6 p-40">
+            <img src=" {{ item.thumbnail.src }} " alt=" {{ item.thumbnail.alt }} " class="shadow d-block w-100">
+             
+        </div>
+        <div class="col-12 col-md-6 p-10 mt30">
+            <div class="w-80 m-a">
+                {{ item.post_excerpt }}
+            </div> 
+            <a href=" {{ item.link }} " class="font2 d-block w-30 bk-green color7 t8 brd2 brd-c6 r10 m-a mt30 p-10"> {{ 'lire la suite'|capitalize }}</a>
+            <hr> 
+            {% include 'partial/anchors/anchor3-black.twig' %}
+        </div>
+        {% if item.get_field('articles_associes') %}
+            <a id="article-anch3" class="anch col-md-12 d-none d-md-block"></a>
+            <h2 class="color6">articles associés</h2>
+            {% for art in item.get_field('articles_associes') %}
+                <a href=" {{ art.link }} " class="col-12 row bk7 p-10 m-a p-10 mt30">
+                    <div class="col-12 col-md-2 ">
+                        <img class="d-block w-100" src="{{ art.thumbnail.src }} " alt=" {{ art.thumbnail.alt }} ">
+                    </div>
+                    <div class="col-12  col-md-10 white">
+                        <p class="white mb30">
+                        {% for term in art.terms if term.taxonomy != 'category' %}
+                            <span class="p-10 bk3">{{ term.name }}</span>
+                        {% endfor %}
+                    </p>
+                        <h3 class="p-10 t-a-center color4">
+                            {{ art.title }}
+                        </h3>  
+                        <div class="p-10 t-a-center white mb30">
+                            {{ art.post_excerpt }}
+                        </div>  
+                    </div>   
+                </a> 
+            {% endfor %}
+        {% endif %}
+       
+        
+        <div class="col-12 p-20">
+        {% include 'partial/anchors/anchor4-black.twig' %}
+        </div>
+        {% include 'partial/sections/accueil/section5-video.twig' %}
+    </div>
+</div>
+
+
+    
+{% endfor %}

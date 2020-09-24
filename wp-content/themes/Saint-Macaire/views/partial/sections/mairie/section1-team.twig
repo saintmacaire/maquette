@@ -1,0 +1,157 @@
+<div class="url2 parallax2 p-30">
+    <a id="article-anch" class="col-12"></a>
+    <div class="container m-a bk6 r20">
+        <div class="row  p-30 ">
+            <h1 class=" col-12 col-md-4 m-a bk3 mt30">
+
+                <span class=" color4 p40">
+                    <img src="{{ theme.link }}/assets/img/armor-white.png" class="w-20 p-10 d-inline-block" alt="armes de {{ site.title }} ">
+                    {{ 'Nos Élus'|upper }}
+                </span>
+            </h1>
+            {% for elu in members %}
+                {% for term in elu.terms if term.taxonomy == 'member-type' and  'Maire' in term.name %}
+                    <div id="maire" class="row toile2 modal wmax-90 m-a mt-10 modal-prime">
+                        <div class="row">
+                            <a id="article-anch11" class="anch col-md-12 d-none mb-10 d-md-block"></a>
+                            <a href="#" class="col-11 m-a p-10 white t10 t-a-right toile2" rel="modal:close"><i class="fal fa-times"></i></a>
+                            {# <a id="article-anch12" class="anch col-md-12 d-none d-md-block"></a>  #}
+                            <div class="offset-md-1 d-none d-md-block"></div>
+                            <div class="col-12 col-md-6">
+                                <div>
+                                    <img src="{{ elu.thumbnail.src }}" alt="{{ elu.thumbnail.alt }}" class="r-50 brd2 brd-c3 r10 p-10 m-a wmax-100 d-block hmax80vh ">
+                                </div>
+                                <div class="green ml10">
+                                    <h2 class="color4 mt20">Ecrire au maire</h2>
+                                    {{ elu.get_field('formulaire')|shortcodes }}
+                                </div>
+                            </div>
+                            <div class="offset-md-1 d-none d-md-block"></div>
+                            <div class="r10 col-12 col-md-4 row hmax70vh">
+                                
+                                <div class="row p+30 brd2 brd-white bk3 r20">
+                                    <h2 class="color4  d-none d-md-block font2">
+                                        <img src="{{ theme.link }}/assets/img/armor-white.png" alt="" class="d-inline-block  w-30">{{ elu.get_field('prenom')|capitalize }} {{ elu.get_field('nom')|upper }}
+                                    </h2>
+                                    <h5 class="white w-100 t-a-center d-none d-md-block">
+                                        {{ term.name }} de Saint-Macaire
+                                    </h5>
+                                </div>
+                                
+                            </div>
+                            
+                            
+                        </div>
+                        <div class="h10 mt-10 white row">
+                            
+                            <hr class="brd-green col-md-3 d-none d-md-block"> 
+                            <div class="col-md-4 d-none d-md-block">
+                                
+                                    <img src="{{ theme.link }}/assets/img/armor-white.png" alt="" class="w-10 d-block"> - tous droits réservés: saintmacaire.fr ®
+                            </div>
+                            <hr class="brd-green col-md-3 d-none d-md-block">
+                                
+                        </div>
+                    </div>
+                    <!-- Link to open the modal -->
+                    <div class="offset-md-4 d-none d-md-block"></div>
+                    <a href="#maire" class="col-12 col-md-4 shadow m-a toile2 mb30" rel="modal:open">
+                        <div class="w-80 m-a">
+                            <img class="d-block w-100 r-50 brd5 brd-c4" src=" {{ elu.thumbnail.src }} " alt="photo de {{ elu.thumbnail.alt }} ">
+                        </div>
+                        <div class="white bk3 caption2">
+                            <h4 class=" white">
+                                {{ elu.prenom }} {{ elu.nom }}
+                            </h4>
+                            <h5 class="font2 color4 t10 p-10">
+                                
+                                {{ elu.name }} 
+                            
+                            
+                            </h5>
+                            {# <ul class="white w-100">
+                            {% for com in elu.terms if com.taxonomy == 'member-com'  %}
+                                <li class="w-100"><span class="green font1">{{ com.name }}</span></li>
+                            {% endfor %}
+                            </ul> #}
+                        </div>
+                    </a>
+                    
+            
+                {% endfor %}
+                {% for term in elu.terms if term.taxonomy == 'member-type'  %}
+                    {% if '1er adjoint' in term.name or '2eme adjoint' in term.name or '3eme adjoint' in term.name or '4eme adjoint' in term.name or '5eme adjoint' in term.name or 'conseiller délégué' in term.name %}
+                        <div id="adjoint-{% if term.name == '1er adjoint'%}1{% elseif term.name == '2eme adjoint' %}2{% elseif term.name == '3eme adjoint' %}3{% elseif term.name == '4eme adjoint' %}4{% elseif term.name == '5eme adjoint' %}5{% elseif term.name == 'conseiller délégué' %}6{% endif %}" class="row toile2 modal wmax-90 m-a mt-10 modal-prime">
+                            <div class="row">
+                                <a id="article-anch11" class="anch col-md-12 d-none mb-10 d-md-block"></a>
+                                {# <a id="article-anch12" class="anch col-md-12 d-none d-md-block"></a>  #}
+                                
+                                <div class="offset-md-1 d-none d-md-block"></div>
+                                <div class="col-12 col-md-6">
+                                    <div>
+                                        <img src="{{ elu.thumbnail.src }}" alt="{{ elu.thumbnail.alt }}" class="r-50 brd2 brd-c3 r10 p-10 m-a wmax-100 d-block hmax80vh ">
+                                    </div>
+                                    <div class="green ml10">
+                                        <h2 class="color4 mt20"> écrire au {{  term.name }} </h2>
+                                        {{ elu.get_field('formulaire')|shortcodes }}
+                                    </div>
+                                </div>
+                                <div class="offset-md-1 d-none d-md-block"></div>
+                                <div class="r10 col-12 col-md-4 row p+30 brd2 brd-white bk3 r20 hmax70vh">
+                                    <a href="#" class="col-12 p-10 white t10 t-a-left toile2" rel="modal:close"><i class="fal fa-times"></i></a>
+                                    <h2 class="color4  d-none d-md-block font2">
+                                        <img src="{{ theme.link }}/assets/img/armor-white.png" alt="" class="d-inline-block  w-30">{{ elu.get_field('prenom')|capitalize }} {{ elu.get_field('nom')|upper }}
+                                    </h2>
+                                    <h5 class="white w-100 t-a-center d-none d-md-block">
+                                        {{ term.name }} de Saint-Macaire
+                                    </h5>
+                                    <ul class="white row">
+                                    <p class="col-8 col-md-4 white p-10 underline"> {{ 'délégations:'|capitalize }} </p>
+                                    {% for com in elu.terms if com.taxonomy == 'member-com'  %}
+                                        <li class="t-a-center col-12 col-md-4"><span class="green font1">{{ com.name }}</span></li>
+                                    {% endfor %}
+                                    <hr class="brd-c4 d-none d-md-block col-md-4">
+                                    </ul>
+                                </div>
+                                
+                                
+                            </div>
+                            <div class="h10 mt-10 white row">
+                                
+                                <hr class="brd-green col-md-3 d-none d-md-block"> 
+                                <div class="col-md-4 d-none d-md-block">
+                                    
+                                        <img src="{{ theme.link }}/assets/img/armor-white.png" alt="" class="w-10 d-block"> - tous droits réservés: saintmacaire.fr ®
+                                </div>
+                                <hr class="brd-green col-md-3 d-none d-md-block">
+                                    
+                            </div>
+                        </div>
+                        <!-- Link to open the modal -->
+                        <a href="#adjoint-{% if term.name == '1er adjoint'%}1{% elseif term.name == '2eme adjoint' %}2{% elseif term.name == '3eme adjoint' %}3{% elseif term.name == '4eme adjoint' %}4{% elseif term.name == '5eme adjoint' %}5{% elseif term.name == 'conseiller délégué' %}6{% endif %}" class="col-12 col-md-4 shadow toile2 mb30" rel="modal:open">
+                            <div class="w-80 m-a">
+                                <img class="d-block w-100 r-50 brd5 brd-c4" src=" {{ elu.thumbnail.src }} " alt="photo de {{ elu.thumbnail.alt }} ">
+                            </div>
+                            <div class="white bk3 caption2">
+                                <h4 class=" white">
+                                    {{ elu.prenom }} {{ elu.nom }}
+                                </h4>
+                                <h5 class="font2 color4 t10 p-10">
+                                    
+                                    {{ elu.name }} 
+                                
+                                
+                                </h5>
+                                <ul class="white w-100">
+                                {% for com in elu.terms if com.taxonomy == 'member-com'  %}
+                                    <li class="t-a-center w-100"><span class="green font1">{{ com.name }}</span></li>
+                                {% endfor %}
+                                </ul>
+                            </div>
+                        </a>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+        </div>
+    </div>
+</div>

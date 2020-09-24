@@ -1,0 +1,10 @@
+<div class="t-a-center white d-block p-10 footer-widget col-12 white col-md-4 brd1 brd-c2 p-30">
+    {% for item in events %}
+        {% if time|date('U') <= item.get_field('begin')|date('U') or time|date('U') <= item.get_field('end')|date('U') %}
+        <div class="resources-line p-10 toile col-12 bk5 row m-a brd1 brd-c2">
+            {{ item.title }}
+        </div>
+        {% endif %}
+        
+    {% endfor %}
+</div>

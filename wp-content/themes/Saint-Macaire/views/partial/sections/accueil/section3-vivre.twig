@@ -1,0 +1,36 @@
+{% for item in posts if item.id == 719 %}
+<div class="container-fluid url5 parallax2 bk5">
+    <a id="article-anch5" class="anch row d-none d-md-block"></a>
+    <div class="row p-30 mb-10 mt-10 white">
+        <h1 class=" col-8 color4 ml-10 bk3 mb30">
+                <img src="{{ theme.link }}/assets/img/armor-white.png" class="w-15 p-10 d-inline-block" alt="armes de {{ site.title }} ">{{ item.title }}
+        </h1>
+        
+           {% include 'partial/anchors/anchor6.twig' %}
+    
+        <div class="offset-md-2 d-none d-md-block"></div>
+        <div class="col-12 col-md-4 m-a p-30 mt30 mb30 bk3">
+            <div class="w-80 m-a ">{{ item.get_field('content') }}</div> 
+            <div class="w-80 m-a d-flex justify-content-around">
+                <a href="{{ site.url }}/services-publics/#article-anch" class="white mb10 resources-line p-10 bk-blue r10 brd2 brd-c2">
+                    Services publics
+                </a>
+            </div>
+            <div class="w-80 m-a d-flex justify-content-around">
+                <a href="{{ site.url }}/associations/#article-anch" class="white mb10 resources-line p-10 bk-blue r10 brd2 brd-c2">
+                    Associations
+                </a>
+            </div>
+            <div class="w-80 m-a d-flex justify-content-around">
+                <a href="{{ site.url }}/economie/#article-anch" class="white mb10 resources-line p-10 bk-blue r10 brd2 brd-c2">
+                    Services/entreprises
+                </a>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+
+    
+{% endfor %}

@@ -1,0 +1,42 @@
+{# dropdownn md #}
+<div class="d-none black d-md-block col-md-10 mt20">
+    
+    <div class="menu header-menu d-flex">
+        <!-- Dropdown menu links -->
+        <ul class="d-flex justify-content-around t1 w-100 m-a">
+            {% for item in menu.items %}
+         
+            <li class="w-20 m-a d-block item-menu link pb30 ">
+                <div class="dropdown w-100">
+                    <a href="{{ item.link }}">
+                    <button onclick="myFunction()" class="color3 w-100 dropbtn">{{ item.title }}</button>
+                    </a>
+                    <div id="myDropdown" class="t-a-center w-100 black dropdown-content">
+                        {% if item.children %}
+                            {% for child in item.children %}
+                                    <a class="color6"  href="{{ child.link }}">
+                                        {{ child.title }}
+                                    </a>
+                                    <hr class="menu-hr">
+                            {% endfor %}
+                        
+                        {% endif %}
+                    
+                  </div>
+                </div>
+                {# si lien  #}
+                           
+                        
+                    
+                 
+            </li>
+            
+            {% endfor %}
+           
+           
+           
+        </ul>
+            
+        
+    </div>
+</div>

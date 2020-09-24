@@ -1,0 +1,39 @@
+ {% for term in item.terms  %}
+                        {% if loop.index == 1 %}
+{% for item in events if time|date('U') <= item.get_field('begin')|date('U') or time|date('U') <= item.get_field('end')|date('U') %}
+    {% if post.title == item.get_field('organisateur').title %}
+        {% if loop.index == 1 %}
+            <div class="white d-block p-10 footer-widget col-12 bk5 brd1 brd-c2 p-30">
+                <div class="container-fluid mt-10">
+                    <h2 class="mb30 mt10">
+                        <span class="m-a p-10 color4 bk3"><i class="white fal fa-calendar-exclamation"></i> {{ 'Prochains évènements'|upper }}</span>
+                    </h2>
+                   
+                            <p class="color4 mt10 mb10 ">
+                                <span class="p-20 bk3 brd-l1 brd-b1 brd-c4">
+                                    <i class="fal fa-theater-masks white"></i> {{ term.name }}
+                                </span>
+                            </p>
+                            <a href=" {{ item.link }} " class="bk6 row brd1 brd-c3 resources-line ">
+                                <div class="col-12 col-md-2 p-10">
+                                    <img src=" {{ item.thumbnail.src }} " alt=" {{ item.thumbnail.alt }} " class="r-50 w-100 d-block">
+                                </div>
+                                <div class="col-12 col-md-5 color4 pt20">
+                                    {% if item.get_field('end') and item.get_field('begin') != item.get_field('end') %} 
+                                        {{ item.get_field('begin') }} au {{ item.get_field('end') }} 
+                                    {% else %} 
+                                        {{ item.get_field('begin') }}
+                                    {% endif %}
+                                </div>
+                                <div class="col-12 col-md-5 green pt20">
+                                    {{ item.title }}
+                                </div>
+                            </a>
+                </div>
+            </div>
+        {% endif %}
+    {% endif %}            
+{% endfor %}
+                        {% endif %}
+                    {% endfor %}
+	

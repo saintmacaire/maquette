@@ -1,0 +1,173 @@
+<div class="t-a-center white d-block p-10 footer-widget col-12 white col-md-4 brd1 brd-c2 p-30 ">
+    <div class="offset-md-1 d-none d-md-block"></div>
+    <h2 class="bk3 color4 p-10 col-10 ">
+       
+        Mairie de Saint Macaire
+    </h2>
+    <div class="offset-md-1 d-none d-md-block"></div>
+    {% for item in places if item.id == 99 %}
+    
+    <div class="row">
+        <div class="col-12 p-10">
+            <img src=" {{ item.thumbnail.src }} " alt=" {{ item.thumbnail.alt }} " class="w-100 d-block">
+        </div>
+        <div class="col-12 p-10">
+            <p class="t-a-center white p-10 col-10 m-a">
+                    {{ item.get_field('adresse_ligne_1') }}
+            </p>
+            {% if item.get_field('adresse_ligne_2') %}
+        
+                <p class="white t-a-center color4 p-10">
+                    {{ item.get_field('adresse_ligne_2') }}
+                </p>
+            {% endif %}
+            <p class="white t-a-center color4 p-10 color4">
+                {{ item.get_field('cp') }} - {{ item.get_field('commune') }}
+            </p>
+            <p class="white t-a-center color4 p-10 color4">
+                {{ item.get_field('pays') }}
+            </p> 
+            <p class="green t-a-center color4 p-10 color4">
+                    <i class="fal fa-phone white t1"></i> {{ item.get_field('tel') }} 
+            </p></div>
+        <div class="col-12 p-10">
+    
+            <table class="w-100 m-a t-a-center">
+                <thead>
+                    <tr>
+                        <th  colspan="10" class="center">
+                            <h5 class="color4">
+                                Horaires d'ouverture
+                            </h2>
+                        </th>
+                        <tr>
+                        <th>  </th>
+                        <th class="W-50 t-a-center">matin</th>
+                        <th class="W-50 t-a-center">après-midi</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="green p-10">
+                            Lundi
+                        </td>
+                        <td class="W-50 t-a-center">
+
+                            {% if item.get_field('lundi_o1') %}
+                            
+                                {{ item.get_field('lundi_o1') }} - {{ item.get_field('lundi_f1')|date('H:i') }}
+                            {% else %}
+                                <i class="color3">fermé</i>
+                                     
+                            {% endif %}
+                        
+                        </td>
+                        <td class="W-50 t-a-center">
+                        {% if item.get_field('lundi_o2') %}
+                                {{ item.get_field('lundi_o2')|date('H:i') }} - {{ item.get_field('lundi_f2')|date('H:i') }} 
+                        {% else %}
+                                <i class="color3">fermé</i>
+                                
+                        {% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="green p-10">
+                            Mardi  
+                        </td>
+                        <td class="W-50 t-a-center">
+                        {% if item.get_field('mardi_o1') %}
+                            {{ item.get_field('mardi_o1')|date('H:i') }} - {{ item.get_field('mardi_f1')|date('H:i') }} 
+                        {% else %}
+                                <i class="color3">fermé</i>
+                                
+                        {% endif %}
+                        
+                        </td>
+                        <td class="W-50 t-a-center">
+                        {% if item.get_field('mardi_o2') %}
+                                {{ item.get_field('mardi_o2')|date('H:i') }} - {{ item.get_field('mardi_f2')|date('H:i') }} 
+                        {% else %}
+                                <i class="color3">fermé</i>
+                                
+                        {% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="green p-10">
+                            Mercredi  
+                        </td>
+                        <td class="W-50 t-a-center">
+                        {% if item.get_field('mercredi_o1') %}
+                            {{ item.get_field('mercredi_o1')|date('H:i') }} - {{ item.get_field('mercredi_f1')|date('H:i') }} 
+                        {% else %}
+                                <i class="color3">fermé</i>
+                                
+                        {% endif %}
+                    
+                        </td>
+                        <td class="W-50 t-a-center">
+                        {% if item.get_field('mercredi_o2') %}
+                                {{ item.get_field('mercredi_o2')|date('H:i') }} - {{ item.get_field('mercredi_f2')|date('H:i') }} 
+                        {% else %}
+                                <i class="color3">fermé</i>
+                                
+                        {% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="green p-10">
+                            Jeudi  
+                        </td>
+                        <td class="W-50 t-a-center">
+                        {% if item.get_field('jeudi_o1') %}
+                            {{ item.get_field('jeudi_o1')|date('H:i') }} - {{ item.get_field('jeudi_f1')|date('H:i') }} 
+                        {% else %}
+                                <i class="color3">fermé</i>
+                                
+                        {% endif %}
+                        
+                        </td>
+                        <td class="W-50 t-a-center">
+                        {% if item.get_field('jeudi_o2') %}
+                                {{ item.get_field('jeudi_o2')|date('H:i') }} - {{ item.get_field('jeudi_f2')|date('H:i') }} 
+                        {% else %}
+                                <i class="color3">fermé</i>
+                                
+                        {% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="green p-10">
+                            Vendredi  
+                        </td>
+                        <td class="W-50 t-a-center">
+                        {% if item.get_field('vendredi_o1') %}
+                            {{ item.get_field('vendredi_o1')|date('H:i') }} - {{ item.get_field('vendredi_f1')|date('H:i') }} 
+                        {% else %}
+                                <i class="color3">fermé</i>
+                                
+                        {% endif %}
+                        
+                        </td>
+                        <td class="W-50 t-a-center">
+                        {% if item.get_field('vendredi_o2') %}
+                            {{ item.get_field('vendredi_o2')|date('H:i') }} - {{ item.get_field('vendredi_f2')|date('H:i') }} 
+                        {% else %}
+                                <i class="color3">fermé</i>
+                                
+                        {% endif %}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        
+            
+        </div>
+    </div>
+    
+    
+    {% endfor %}
+    
+</div>

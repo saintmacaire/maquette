@@ -1,0 +1,49 @@
+{% for item in posts if item.id == 835 %}
+<div class="container-fluid url6 parallax2">
+    <a id="article-anch6" class="anch col-md-12 d-none d-md-block"></a>
+    <div class="row p-30 bk5 mb-10 mt-10 white">
+        <h1 class=" col-8 ml-10 mb30">
+            <span class="color4 bk3 p-40">
+                <img src="{{ theme.link }}/assets/img/armor-white.png" class="w-10 p-10 d-inline-block" alt="armes de {{ site.title }} ">{{ item.title }}
+            </span>
+        </h1>
+        <div class="col-12 col-md-4 p-30 mt30 bk3">
+           <div class="w-80 m-a ">{{ item.get_field('content') }}</div> 
+           
+            {% include 'partial/anchors/anchor7.twig' %}
+        </div>
+        <div class="offset-md-2 d-none d-md-block"></div>
+        <div class="col-12 col-md-4 p-40 mt-10 ml-10">
+            <div class="w-80 m-a d-flex justify-content-around">
+                <a href="{{ site.url }}/scolarite/#article-anch" class="white mb10 resources-line p-10 bk-blue r10 brd2 brd-c2">
+                    Scolarité
+                </a>
+           </div>
+           <div class="w-80 m-a d-flex justify-content-around">
+                <a href="{{ site.url }}/petite-enfance/#article-anch" class="white mb10 resources-line p-10 bk-blue r10 brd2 brd-c2">
+                    Petite enfance
+                </a>
+           </div>
+           <div class="w-80 m-a d-flex justify-content-around">
+                <a href="{{ site.url }}/accueil-periscolaire/#article-anch" class="white mb10 resources-line p-10 bk-blue r10 brd2 brd-c2">
+                    Accueil périscolaire
+                </a>
+           </div>
+           <div class="w-80 m-a d-flex justify-content-around">
+                <a href="{{ site.url }}/centre-de-loisirs/#article-anch" class="white mb10 resources-line p-10 bk-blue r10 brd2 brd-c2">
+                    Centre de loisirs
+                </a>
+           </div>
+           <div class="w-80 m-a d-flex justify-content-around">
+                <a href="{{ site.url }}/activites-ados/#article-anch5" class="white mb10 resources-line p-10 bk-blue r10 brd2 brd-c2">
+                    Activités Ados
+                </a>
+           </div>
+        </div>
+        
+    </div>
+</div>
+
+
+    
+{% endfor %}

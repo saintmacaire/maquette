@@ -1,0 +1,25 @@
+<div class="l-2 caption2 bk7 color4 caption5 mce-active carousel-caption hmax70vh wmax-lg-40 mce-active d-none d-md-flex d-lg-block t4">
+        {# petit logo #}
+        <div class="row">
+            <div class="col-6 col-md-4 p10 m-a">
+                <img src="{{ theme.link }}/assets/img/armor-white.png" class="w-lg-100" alt="armes de {{ site.title }} ">
+            </div>
+            <h1 class="col-6 col-md-8 p10 pt50 t-a-center">
+                {{ site.title }}
+            </h1>
+        </div>
+        
+        
+        {# Nom #}
+        
+        <p class=" m-a green p20 mb40 font2 t-a-center t8">
+            {{ site.description|capitalize}}
+        </p>
+        <p class=" m-a white p20 mb40 t-a-center t8">
+            {{ post.title}}
+        </p>
+         
+        
+        {% include 'partial/anchors/anchor1.twig' %}
+        
+</div>  

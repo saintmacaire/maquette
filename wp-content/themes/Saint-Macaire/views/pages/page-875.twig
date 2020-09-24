@@ -1,0 +1,46 @@
+{% extends 'base.twig' %}
+{% block tmp_slide %}
+    {% include 'partial/blocs/slider.twig' %}
+{% endblock %}
+{% block content %}
+    <section>
+        <a id="article-anch" class="anch col-md-12 d-none d-md-block"></a>
+        <h1 class=" col-8 ml-10 mb30">
+            <span class="p-40 pb50 bk3 color4">
+                <img src="{{ theme.link }}/assets/img/armor-white.png" class="w-10  d-inline-block" alt="armes de {{ site.title }} ">{{ post.title }}
+            </span>
+        </h1>
+       
+    {% if acts %}
+     <div class="container-fluid bk5 p-10  mb20">
+        <div class="row m-a  h-a ">
+            {% for item in acts if now|date('U') <= item.get_field('begin') or now|date('U') < item.get_field('end') %}
+                {% for term in item.terms  if  term.name == 'culture' or term.name == 'vie locale' or term.name ==  'vie associative'  %}
+                <a href=" {{ item.link }} " class="{% if item.terms %}{% for term in item.terms  %}{{ term.id }} {% endfor %}{% endif %} element-item col-12 row resources-line bk5 p-10 toile2 m-a">
+                    <div class="col-12 col-md-3">
+                        {% if term.parent == 0 %}
+                            <span class="bk3 white p-10">
+                                {{ term.name }}
+                            </span>
+                        {% endif %}
+                    </div>
+                    <div class="col-12 col-md-1">
+                        <img src="{{ item.thumbnail.src }}" alt=" {{ item.thumbnail.alt }} " class="d-block w-100 r-50 m-a">
+                    </div>
+                    <div class="col-12 col-md-3 color4 mt20">
+                        {% if item.get_field('end') and item.get_field('begin')|date('j F Y') != item.get_field('end')|date('j F Y') %} 
+                            {{ item.get_field('begin')|date('j F') }} au {{ item.get_field('end')|date('j F Y') }} 
+                        {% else %} 
+                            {{ item.get_field('begin')|date('j F Y') }}
+                        {% endif %}
+				    </div>
+
+                    <div class="col-12 col-md-3 t-a-center white p-10"> {{ item.title }} </div>
+                </a>
+                {% endfor %}
+            {% endfor %}
+        </div>
+     </div>
+     {% endif %}  
+    </section>
+{% endblock %}

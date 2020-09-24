@@ -1,0 +1,21 @@
+<div class="container-fluid">
+<a id="article-anch2"></a>
+<h1 class="t-a-center mb50">
+    <span class="bk3 color4 shadow p-10">
+        {{ 'vos démarches'|upper }}
+    </span> 
+</h1>
+    <div class="row">
+        {% for item in posts %}
+            {% for term in item.terms if term.name =='démarches' %}
+                <a href=" {{ item.link }} " class="resources-line m-a mb50 brd1 brd-c5 r20 shadow col-12 col-md-3 p-30">
+                    <img src=" {{ item.thumbnail.src }} " alt="item.thumbnail.alt" class="r-50 d-block w-10">
+                    <p class="p-10 color3 t-center">
+                        {{item.title|capitalize}}
+                    </p>
+                </a>
+            {% endfor %}
+        {% endfor %}
+       
+    </div>
+</div>

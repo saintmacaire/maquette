@@ -1,0 +1,38 @@
+<div id="asso-{{ loop.index }}" class="row toile2 modal wmax-90 m-a mt-10 modal-prime">
+        <div class="row">
+            <a id="article-anch11" class="anch col-md-12 d-none mb-10 d-md-block"></a>
+            {# <a id="article-anch12" class="anch col-md-12 d-none d-md-block"></a>  #}
+            
+            <div class="col-12 col-md-6">
+                <div>
+                    <img src="{{ elu.thumbnail.src }}" alt="{{ elu.thumbnail.alt }}" class="r-50 brd2 brd-c3 r10 p-10 m-a wmax-100 d-block hmax80vh ">
+                </div>
+                <div class="green ml10">
+                    <h2 class="color4 mt20"> {{ item.title }} </h2>
+                </div>
+            </div>
+            <div class="offset-md-1 d-none d-md-block"></div>
+            <div class="r10 col-12 col-md-4 row p+30 brd2 brd-white bk3 r20 hmax70vh">
+                <a href="#" class="col-12 p-10 white t10 t-a-left toile2" rel="modal:close"><i class="fal fa-times"></i></a>
+                <h2 class="color4  d-none d-md-block font2">
+                    <img src="{{ theme.link }}/assets/img/armor-white.png" alt="" class="d-inline-block  w-30">{{ elu.get_field('prenom')|capitalize }} {{ elu.get_field('nom')|upper }}
+                </h2>
+                <h5 class="white w-100 t-a-center d-none d-md-block">
+                    {{ term.name }} de Saint-Macaire
+                </h5>
+            </div>
+            <div class="offset-md-1 d-none d-md-block"></div>
+            
+        </div>
+        <div class="h10 mt-10 white row">
+            
+            <hr class="brd-green col-md-3 d-none d-md-block"> 
+            <div class="col-md-4 d-none d-md-block">
+                
+                    <img src="{{ theme.link }}/assets/img/frondaison-white.png" alt="" class="w-10 d-block"> - tous droits réservés: saintmacaire.fr ®
+            </div>
+            <hr class="brd-green col-md-3 d-none d-md-block">
+                
+        </div>
+    </div>
+</div>

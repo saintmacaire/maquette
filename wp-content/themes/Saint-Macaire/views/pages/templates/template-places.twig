@@ -1,0 +1,28 @@
+{% extends 'base.twig' %}
+{% block tmp_slide %}
+    {% include 'partial/blocs/slider.twig' %}
+{% endblock %}
+{% block content %}
+<div class="container-fluid">
+    <a id="article-anch" class="anch col-md-12 d-none d-md-block"></a>
+    <div class="row">
+        <div class="col-12 col-md-10 m-a p-10 ">
+            <h1>
+                <span class="p-10 m-a bk3 color4">
+                    {{ post.title }}
+                </span>
+            </h1>
+            <div class="mt-10 fl mr-10"><img src=" {{post.thumbnail.src}} " alt=" {{ post.thumbnail.alt }} " class="shadow d-block wmax-80 m-a  hmax70vh m-a"></div>
+                {{ post.get_field('content') }}
+            </div>
+        </div>
+        {% include 'partial/blocs/gals.twig' %}
+        {% include 'partial/blocs/place-events.twig' %}
+        <div class="col-10 m-a p-10 brd2 brd-c5 r20 mt-10 mb-10">
+            {{ post.get_field('map') }}
+        </div>
+    </div>   
+    
+</div>
+
+{% endblock %}

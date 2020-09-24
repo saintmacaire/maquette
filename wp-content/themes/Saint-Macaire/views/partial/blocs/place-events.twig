@@ -1,0 +1,138 @@
+<div class="white d-block p-10 footer-widget col-12 col-md-10 m-a  brd1 brd-c2 p-30">
+	
+
+	
+	<div class="container-fluid mt-10">
+
+		{% for item in events if now|date('U') <= item.get_field('begin') or now|date('U') <= item.get_field('end') %}
+			{% if loop.index == 1 %}
+				<h2 class="mb30 mt10">
+					<span class="m-a p-10 color4 bk3"><i class="white fal fa-calendar-exclamation"></i> {{ 'Évènements associés'|upper }}</span>
+				</h2>
+			{% endif %}
+			
+            {% if item.get_field('lieu').title == post.title %}
+            
+			{% for term in item.terms  if term.name == 'culture'%}
+			{% if loop.index == 1 %}
+				<p class="color4 mt10 mb10 ">
+					<span class="p-20 bk3 brd-l1 brd-b1 brd-c4">
+						<i class="fal fa-theater-masks white"></i> {{ term.name }}
+					</span>
+					
+				</p>
+			{% endif %}
+			<a href=" {{ item.link }} " class="row brd1 bk6 brd-c3 resources-line ">
+				<div class="col-12 col-md-2 p-10">
+					<img src=" {{ item.thumbnail.src }} " alt=" {{ item.thumbnail.alt }} " class="r-50 w-100 d-block">
+				</div>
+				<div class="col-12 col-md-5 color4 pt20">
+					{% if item.get_field('end') and item.get_field('begin') != item.get_field('end') %} 
+						{{ item.get_field('begin') }} au {{ item.get_field('end') }} 
+					{% else %} 
+						{{ item.get_field('begin') }}
+					{% endif %}
+					
+				</div>
+				<div class="col-12 col-md-5 green pt20">
+					{{ item.title }}
+					
+				</div>
+			</a>
+			{% endfor %}
+            {% endif %}
+		{% endfor %}
+		{% for item in events if now|date('U') <= item.get_field('begin') or now|date('U') <= item.get_field('end') %}
+			{% if item.get_field('lieu').title == post.title %}
+            {% for term in item.terms  if term.name == 'sports'%}
+			{% if loop.index == 1 %}
+				<p class="color4 mt10 mb10 ">
+					<span class="p-20 bk3 brd-l1 brd-b1 brd-c4">
+						<i class="fal fa-volleyball-ball white"></i> {{ term.name }}
+					</span>
+				</p>
+			{% endif %}
+			<a href=" {{ item.link }} " class="row brd1 brd-c3 resources-line ">
+				<div class="col-12 col-md-2 p-10">
+					<img src=" {{ item.thumbnail.src }} " alt=" {{ item.thumbnail.alt }} " class="r-50 w-100 d-block">
+				</div>
+				<div class="col-12 col-md-5 color4 pt20">
+					{% if item.get_field('end') and item.get_field('begin') != item.get_field('end') %} 
+						{{ item.get_field('begin')|date('j F') }} au {{ item.get_field('end')|date('j F Y') }} 
+					{% else %} 
+						{{ item.get_field('begin')|date('j F Y') }}
+					{% endif %}
+					
+				</div>
+				<div class="col-12 col-md-5 green pt20">
+					{{ item.title }}
+					
+				</div>
+			</a>
+			{% endfor %}
+            {% endif %}
+		{% endfor %}
+		{% for item in events if now|date('U') <= item.get_field('begin') or now|date('U') <= item.get_field('end') %}
+			{% if item.get_field('lieu').title == post.title %}
+            {% for term in item.terms  if term.name == 'vie locale'%}
+			{% if loop.index == 1 %}
+				<p class="color4 mt10 mb10 ">
+					<span class="p-20 bk3 brd-l1 brd-b1 brd-c4">
+						<i class="fal fa-university white"></i> {{ term.name }}
+					</span>
+				</p>
+			{% endif %}
+			<a href=" {{ item.link }} " class="row  bk6 brd1 brd-c3 resources-line ">
+				<div class="col-12 col-md-2 p-10">
+					<img src=" {{ item.thumbnail.src }} " alt=" {{ item.thumbnail.alt }} " class="r-50 w-100 d-block">
+				</div>
+				<div class="col-12 col-md-5 color4 pt20">
+					{% if item.get_field('end') and item.get_field('begin') != item.get_field('end') %}  
+						{{ item.get_field('begin') }} au {{ item.get_field('end') }} 
+					{% else %} 
+						{{ item.get_field('begin') }}
+					{% endif %}
+					
+				</div>
+				<div class="col-12 col-md-5 green pt20">
+					{{ item.title }}
+					
+				</div>
+			</a>
+			{% endfor %}	
+			{% endif %}
+		{% endfor %}
+		{% for item in events if now|date('U') <= item.get_field('begin') or now|date('U') <= item.get_field('end') %}
+        {% if item.get_field('lieu').title == post.title %}
+        {% for term in item.terms  if term.name == 'travaux - voirie'%}
+            {% if loop.index == 1 %}
+                <h2 class="w-80 m-a p-30 color4 bk3 mb30 mt-10">
+                        <i class="fal fa-snowplow white"></i> {{ term.name }}
+                </h2>
+            {% endif %}
+            <a href=" {{ item.link }} " class="row brd1 bk6 bk2 brd-c3 resources-line ">
+                <div class="col-12 col-md-2 p-10">
+                    <img src=" {{ item.thumbnail.src }} " alt=" {{ item.thumbnail.alt }} " class="r-50 w-100 d-block">
+                </div>
+                <div class="col-12 col-md-5 pt20">
+                    {% if item.get_field('end') and item.get_field('begin') != item.get_field('end') %} 
+                        {{ item.get_field('begin') }} au {{ item.get_field('end') }} 
+                    {% else %} 
+                        {{ item.get_field('begin') }}
+                    {% endif %}
+                    
+                </div>
+                <div class="col-12 col-md-5 pt20">
+                    {{ item.title }}
+                    
+                </div>
+            </a>
+    {% endfor %}
+    {% endif %}
+{% endfor %}
+	</div>
+
+	
+	
+</div>
+	

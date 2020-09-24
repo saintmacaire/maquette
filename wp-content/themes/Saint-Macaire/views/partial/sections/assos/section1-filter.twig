@@ -1,0 +1,16 @@
+
+
+{# {% for act in acts %}
+    {% for term in act.terms %}
+        {% if 'association' in term.name %}
+        <h1 class="p-20 font2 bk3 color4">
+            {{ act.title }}
+        </h1>
+        {% endif %}
+       {% if term.parent > 0 and term.parent == 65 %}
+        <h2 class="p-20 font2 bk4 color3">   
+            {{term.name}}
+        </h2>
+        {% endif %}
+    {% endfor %}
+{% endfor %} #}

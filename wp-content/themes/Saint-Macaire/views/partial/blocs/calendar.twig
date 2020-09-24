@@ -1,0 +1,132 @@
+<div class="white d-block p-10 footer-widget col-12 col-md-6 brd1 brd-c2 p-30">
+	
+
+	<h2 class="mb30 mt10">
+		<span class="m-a p-10 color4 bk3"><i class="white fal fa-calendar-exclamation"></i> {{ 'Prochains évènements'|upper }}</span>
+	</h2>
+	<div class="container-fluid mt-10">
+	
+		{% for item in events if now|date('U') <= item.get_field('begin') or now|date('U') <= item.get_field('end')|date('U') %}
+		
+			{% for term in item.terms  if term.name == 'culture'%}
+			{% if loop.index == 1 %}
+				<p class="color4 mt10 mb10 ">
+					<span class="p-20 bk3 brd-l1 brd-b1 brd-c4">
+						<i class="fal fa-theater-masks white"></i> {{ term.name }}
+					</span>
+					
+				</p>
+			{% endif %}
+			<a href=" {{ item.link }} " class="row brd1 brd-c3 resources-line ">
+				<div class="col-12 col-md-2 p-10">
+					<img src=" {{ item.thumbnail.src }} " alt=" {{ item.thumbnail.alt }} " class="r-50 w-100 d-block">
+				</div>
+				<div class="col-12 col-md-5 color4 pt20 date color3">
+					{% if item.get_field('end')|date and item.get_field('begin') != item.get_field('end') %} 
+						{{ item.get_field('begin')|date('j F Y') }} au {{ item.get_field('end')|date('j F Y') }} 
+					{% else %} 
+						{{ item.get_field('begin')|date('j F Y')}}
+					{% endif %}
+					
+				</div>
+				
+				<div class="col-12 col-md-5 green date pt20">
+					{{ item.title }}
+					
+				</div>
+			</a>
+			{% endfor %}
+		{% endfor %}
+		{% for item in events if now|date('U') <= item.get_field('begin')|date('U') or now|date('U') <= item.get_field('end')|date('U') %}
+			{% for term in item.terms  if term.name == 'sports'%}
+			{% if loop.index == 1 %}
+				<p class="color4 mt10 mb10 ">
+					<span class="p-20 bk3 brd-l1 brd-b1 brd-c4">
+						<i class="fal fa-volleyball-ball white"></i> {{ term.name }}
+					</span>
+				</p>
+			{% endif %}
+			<a href=" {{ item.link }} " class="row brd1 brd-c3 resources-line ">
+				<div class="col-12 col-md-2 p-10">
+					<img src=" {{ item.thumbnail.src }} " alt=" {{ item.thumbnail.alt }} " class="r-50 w-100 d-block">
+				</div>
+				<div class="col-12 col-md-5 color4 pt20 date">
+					{% if item.get_field('end') and item.get_field('begin') != item.get_field('end') %} 
+						{{ item.get_field('begin')|date('j F Y') }} au {{ item.get_field('end')|date('j F Y') }} 
+					{% else %} 
+						{{ item.get_field('begin')|date('j F Y') }}
+					{% endif %}
+					
+				</div>
+				<div class="col-12 col-md-5 green date pt20 color3">
+					{{ item.title }}
+					
+				</div>
+			</a>
+			{% endfor %}
+		{% endfor %}
+		{% for item in events if now|date('U') <= item.get_field('begin')|date('U') or now|date('U') <= item.get_field('end')|date('U') %}
+			{% for term in item.terms  if term.name == 'vie locale'%}
+			{% if loop.index == 1 %}
+				<p class="color4 mt10 mb10 ">
+					<span class="p-20 bk3 brd-l1 brd-b1 brd-c4">
+						<i class="fal fa-university white"></i> {{ term.name }}
+					</span>
+				</p>
+			{% endif %}
+			<a href=" {{ item.link }} " class="row brd1 brd-c3 resources-line ">
+				<div class="col-12 col-md-2 p-10">
+					<img src=" {{ item.thumbnail.src }} " alt=" {{ item.thumbnail.alt }} " class="r-50 w-100 d-block">
+				</div>
+				<div class="col-12 col-md-5 color4 date pt20">
+					{% if item.get_field('end') and item.get_field('begin') != item.get_field('end') %}  
+						{{ item.get_field('begin')|date('j F Y') }} au {{ item.get_field('end')|date('j F Y') }} 
+					{% else %} 
+						{{ item.get_field('begin')|date('j F Y') }}
+					{% endif %}
+					
+				</div>
+				<div class="col-12 col-md-5 green date  color3 pt20">
+					{{ item.title }}
+					
+				</div>
+			</a>
+			{% endfor %}	
+			
+		{% endfor %}
+		<a id="article-works" class="col-12"></a>	
+		{% for item in events if now|date('U') <= item.get_field('begin')|date('U') or now|date('U') <= item.get_field('end')|date('U') %}
+    		{% for term in item.terms  if term.name == 'travaux - voirie'%}
+
+				{% if loop.index == 1 %}
+				<p class="color4 mt10 mb10 ">
+					<span class="p-20 bk3 brd-l1 brd-b1 brd-c4">
+						<i class="fal fa-university white"></i> {{ term.name }}
+					</span>
+				</p>
+				{% endif %}
+				<a href=" {{ item.link }} " class="row brd1 bk2 brd-c3 resources-line ">
+					<div class="col-12 col-md-2 p-10">
+						<img src=" {{ item.thumbnail.src }} " alt=" {{ item.thumbnail.alt }} " class="r-50 w-100 d-block">
+					</div>
+					<div class="col-12 date col-md-5 pt20">
+						{% if item.get_field('end') and item.get_field('begin') != item.get_field('end') %} 
+							{{ item.get_field('begin')|date('j F Y') }} au {{ item.get_field('end')|date('j F Y') }} 
+						{% else %} 
+							{{ item.get_field('begin')|date('j F Y') }}
+						{% endif %}
+						
+					</div>
+					<div class="col-12 col-md-5 date color3 pt20">
+						{{ item.title }}
+						
+					</div>
+				</a>
+    		{% endfor %}
+{% endfor %}
+	</div>
+
+	
+	
+</div>
+	

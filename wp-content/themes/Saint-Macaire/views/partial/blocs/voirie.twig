@@ -1,0 +1,27 @@
+
+    {% for term in item.terms  if term.name == 'travaux - voirie'%}
+            {% if loop.index == 1 %}
+                <p class="white mt10 ">
+                    <span class="p-10 brd-l1 brd-b1 brd-c4">
+                        <i class="fal fa-snowplow red"></i> {{ term.name }}
+                    </span>
+                </p>
+            {% endif %}
+            <a href=" {{ item.link }} " class="row brd1 brd-c3 resources-line ">
+                <div class="col-12 col-md-2 p-10">
+                    <img src=" {{ item.thumbnail.src }} " alt=" {{ item.thumbnail.alt }} " class="r-50 w-100 d-block">
+                </div>
+                <div class="col-12 col-md-5 color4 pt20">
+                    {% if item.get_field('end')  %} 
+                        {{ item.get_field('begin') }} au {{ item.get_field('end') }} 
+                    {% else %} 
+                        {{ item.get_field('begin') }}
+                    {% endif %}
+                    
+                </div>
+                <div class="col-12 col-md-5 green pt20">
+                    {{ item.title }}
+                    
+                </div>
+            </a>
+    {% endfor %}

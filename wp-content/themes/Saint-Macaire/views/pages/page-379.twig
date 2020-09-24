@@ -1,0 +1,26 @@
+{% extends 'base.twig' %}
+{% block tmp_slide %}
+    {% include 'partial/blocs/slider.twig' %}
+{% endblock %}
+{% block content %}
+    <section>
+        <a id="article-anch" class="anch col-md-12 d-none d-md-block"></a>
+        <h1 class="bk3 color4 col-8 ml-10 mb30">
+                <img src="{{ theme.link }}/assets/img/armor-white.png" class="w-15 p-10 d-inline-block" alt="armes de {{ site.title }} ">{{ post.title }}
+        </h1>
+        {% include 'partial/blocs/taxo-isotope.twig' %}
+        {% include 'partial/blocs/smart-taxo-isotope.twig' %}
+         {% if acts %}
+     <div class="container r50 brd2 p-10 brd-c5 m-a justify-content-center mb20">
+        <div class="row grid w-90 m-a">
+            {% for item in acts %}
+                <a href=" {{ item.link }}/#article-anch" class="{% if item.terms %}{% for term in item.terms  %}{{ term.id }} {% endfor %}{% endif %} element-item col-12 col-md-3 col-lg-2 p-0 toile m-a">
+                    <img src="{{ item.thumbnail.src }}" alt=" {{ item.thumbnail.alt }} " class="brd3 brd-c6 w-90 r-50 p-10 m-a mb10 mt10 toile p-0">
+                    <div class="caption2 t-a-center green bk7 p-10"><img src="{{ theme.link }}/assets/img/armor-white.png" alt="  armes de Saint-Macaire - Gironde " class="d-block w-60 m-a mt10 mb20 p-0"> {{ item.title }} </div>
+                </a>
+            {% endfor %}
+        </div>
+     </div>
+     {% endif %}  
+    </section>
+{% endblock %}

@@ -1,0 +1,824 @@
+{% for item in post.get_field('gals') %}
+        <div class="row">
+            {# image 1 #}
+        {% if item.get_field('image_1') %}
+            <div id="pic-1" class="row toile2 modal wmax-90 m-a mt-10 modal-prime">
+                <div class="row">
+                <a class="col-12" id="article-anch11"></a>
+                    
+                    
+                <div class="col-12 white mt30 mb30">
+                        <h1>
+                            <img src="{{ theme.link }}/assets/img/armor-white.png" alt="armoiries de Saint-Macaire" class="p-20 d-inline-block  w-10">
+                            <span class="bk3 p-10">
+                                {{ post.title }}
+                            </span>
+                        </h1>
+                        <div>
+                            <img src="{{ item.get_field('image_1').url }}" alt="{{ item.get_field('image_1').alt }}" class="fl brd2 brd-c3 r10 p-10 mr20 mb20 m-a wmax-100 d-block hmax80vh ">
+                        </div>
+                        <a href="#" class="col-12 red p-10 t10 t-a-left toile2" rel="modal:close"><i class="fal fa-times"></i></a>
+                        {{ post.get_field('content') }}
+                    </div>
+                
+                    
+                </div>
+                <div class="h10 mt-10 white row">
+                    
+                    <hr class="brd-green col-md-3 d-none d-md-block"> 
+                    <div class="col-md-4 d-none d-md-block">
+                        
+                            <img src="{{ theme.link }}/assets/img/armor-white.png" alt="" class="w-10 d-block"> - tous droits réservés: saintmacaire.fr ®
+                    </div>
+                    <hr class="brd-green col-md-3 d-none d-md-block">
+                        
+                </div>
+            </div>
+            <!-- Link to open the modal -->
+            <a href="#pic-1" class="m-a col-12 col-md-4 p-10 toile2 mb30" rel="modal:open">
+                <div class="w-80 m-a">
+                    <img class="d-block w-100 brd5 brd-c4 shadow" src=" {{ item.get_field('image_1').url }} " alt="photo de {{ item.get_field('image_1').alt }} ">
+                </div>
+            </a>
+        {% endif %}
+            {# image 2 #}
+        {% if item.get_field('image_2') %}
+            <div id="pic-2" class="row toile2 modal wmax-90 m-a mt-10 modal-prime">
+                 <div class="row">
+                <a class="col-12" id="article-anch11"></a>
+                    
+                    
+                <div class="col-12 white mt30 mb30">
+                        <h1>
+                            <img src="{{ theme.link }}/assets/img/armor-white.png" alt="armoiries de Saint-Macaire" class="p-20 d-inline-block  w-10">
+                            <span class="bk3 p-10">
+                                {{ post.title }}
+                            </span>
+                        </h1>
+                        <div>
+                            <img src="{{ item.get_field('image_2').url }}" alt="{{ item.get_field('image_2').alt }}" class="fl brd2 brd-c3 r10 p-10 mr20 mb20 m-a wmax-100 d-block hmax80vh ">
+                        </div>
+                        <a href="#" class="col-12 red p-10 t10 t-a-left toile2" rel="modal:close"><i class="fal fa-times"></i></a>
+                        {{ post.get_field('content') }}
+                    </div>
+                
+                    
+                </div>
+                <div class="h10 mt-10 white row">
+                    
+                    <hr class="brd-green col-md-3 d-none d-md-block"> 
+                    <div class="col-md-4 d-none d-md-block">
+                        
+                            <img src="{{ theme.link }}/assets/img/armor-white.png" alt="" class="w-10 d-block"> - tous droits réservés: saintmacaire.fr ®
+                    </div>
+                    <hr class="brd-green col-md-3 d-none d-md-block">
+                        
+                </div>
+            </div>
+            <!-- Link to open the modal -->
+            <a href="#pic-2" class="m-a col-12 col-md-4 p-10 toile2 mb30" rel="modal:open">
+                <div class="w-80 m-a">
+                    <img class="d-block w-100 brd5 brd-c4 shadow" src=" {{ item.get_field('image_2').url }} " alt="photo de {{ item.get_field('image_2').alt }} ">
+                </div>
+                
+            </a>
+        {% endif %}
+            {# image 3 #}
+        {% if item.get_field('image_3') %}
+            <div id="pic-3" class="row toile2 modal wmax-90 m-a mt-10 modal-prime">
+                 <div class="row">
+                <a class="col-12" id="article-anch11"></a>
+                    
+                    
+                <div class="col-12 white mt30 mb30">
+                        <h1>
+                            <img src="{{ theme.link }}/assets/img/armor-white.png" alt="armoiries de Saint-Macaire" class="p-20 d-inline-block  w-10">
+                            <span class="bk3 p-10">
+                                {{ post.title }}
+                            </span>
+                        </h1>
+                        <div>
+                            <img src="{{ item.get_field('image_3').url }}" alt="{{ item.get_field('image_3').alt }}" class="fl brd2 brd-c3 r10 p-10 mr20 mb20 m-a wmax-100 d-block hmax80vh ">
+                        </div>
+                        <a href="#" class="col-12 red p-10 t10 t-a-left toile2" rel="modal:close"><i class="fal fa-times"></i></a>
+                        {{ post.get_field('content') }}
+                    </div>
+                
+                    
+                </div>
+                <div class="h10 mt-10 white row">
+                    
+                    <hr class="brd-green col-md-3 d-none d-md-block"> 
+                    <div class="col-md-4 d-none d-md-block">
+                        
+                            <img src="{{ theme.link }}/assets/img/armor-white.png" alt="" class="w-10 d-block"> - tous droits réservés: saintmacaire.fr ®
+                    </div>
+                    <hr class="brd-green col-md-3 d-none d-md-block">
+                        
+                </div>
+            </div>
+            <!-- Link to open the modal -->
+            <a href="#pic-3" class="m-a col-12 col-md-4 p-10 toile2 mb30" rel="modal:open">
+                <div class="w-80 m-a">
+                    <img class="d-block w-100 brd5 brd-c4 shadow" src=" {{ item.get_field('image_3').url }} " alt="photo de {{ item.get_field('image_3').alt }} ">
+                </div>
+            </a>
+        {% endif %}
+             {# image 4 #}
+        {% if item.get_field('image_4') %}
+            <div id="pic-4" class="row toile2 modal wmax-90 m-a mt-10 modal-prime">
+                 <div class="row">
+                <a class="col-12" id="article-anch11"></a>
+                    
+                    
+                <div class="col-12 white mt30 mb30">
+                    <h1>
+                        <img src="{{ theme.link }}/assets/img/armor-white.png" alt="armoiries de Saint-Macaire" class="p-20 d-inline-block  w-10">
+                        <span class="bk3 p-10">
+                            {{ post.title }}
+                        </span>
+                    </h1>
+                    <div>
+                        <img src="{{ item.get_field('image_4').url }}" alt="{{ item.get_field('image_4').alt }}" class="fl brd2 brd-c3 r10 p-10 mr20 mb20 m-a wmax-100 d-block hmax80vh ">
+                    </div><a href="#" class="col-12 red p-10 t10 t-a-left toile2" rel="modal:close"><i class="fal fa-times"></i></a>
+                    {{ post.get_field('content') }}
+                </div>
+                
+                    
+                </div>
+                <div class="h10 mt-10 white row">
+                    
+                    <hr class="brd-green col-md-3 d-none d-md-block"> 
+                    <div class="col-md-4 d-none d-md-block">
+                        
+                            <img src="{{ theme.link }}/assets/img/armor-white.png" alt="" class="w-10 d-block"> - tous droits réservés: saintmacaire.fr ®
+                    </div>
+                    <hr class="brd-green col-md-3 d-none d-md-block">
+                        
+                </div>
+            </div>
+            <!-- Link to open the modal -->
+            <a href="#pic-4" class="m-a col-12 col-md-4 p-10 toile2 mb30" rel="modal:open">
+                <div class="w-80 m-a">
+                    <img class="d-block w-100 brd5 brd-c4 shadow" src=" {{ item.get_field('image_4').url }} " alt="photo de {{ item.get_field('image_4').alt }} ">
+                </div>
+            </a>
+        {% endif %}
+            {# image 5 #}
+        {% if item.get_field('image_5') %}
+            <div id="pic-5" class="row toile2 modal wmax-90 m-a mt-10 modal-prime">
+                 <div class="row">
+                <a class="col-12" id="article-anch11"></a>
+                    
+                    
+                <div class="col-12 white mt30 mb30">
+                        <h1>
+                            <img src="{{ theme.link }}/assets/img/armor-white.png" alt="armoiries de Saint-Macaire" class="p-20 d-inline-block  w-10">
+                            <span class="bk3 p-10">
+                                {{ post.title }}
+                            </span>
+                        </h1>
+                        <div>
+                            <img src="{{ item.get_field('image_5').url }}" alt="{{ item.get_field('image_5').alt }}" class="fl brd2 brd-c3 r10 p-10 mr20 mb20 m-a wmax-100 d-block hmax80vh ">
+                        </div>
+                        <a href="#" class="col-12 red p-10 t10 t-a-left toile2" rel="modal:close"><i class="fal fa-times"></i></a>
+                        {{ post.get_field('content') }}
+                    </div>
+                
+                    
+                </div>
+                <div class="h10 mt-10 white row">
+                    
+                    <hr class="brd-green col-md-3 d-none d-md-block"> 
+                    <div class="col-md-4 d-none d-md-block">
+                        
+                            <img src="{{ theme.link }}/assets/img/armor-white.png" alt="" class="w-10 d-block"> - tous droits réservés: saintmacaire.fr ®
+                    </div>
+                    <hr class="brd-green col-md-3 d-none d-md-block">
+                        
+                </div>
+            </div>
+            <!-- Link to open the modal -->
+            <a href="#pic-5" class="m-a col-12 col-md-4 p-10 toile2 mb30" rel="modal:open">
+                <div class="w-80 m-a">
+                    <img class="d-block w-100 brd5 brd-c4 shadow" src=" {{ item.get_field('image_5').url }} " alt="photo de {{ item.get_field('image_5').alt }} ">
+                </div>
+            </a>
+        {% endif %}
+        {% if item.get_field('image_6') %}
+             <div id="pic-6" class="row toile2 modal wmax-90 m-a mt-10 modal-prime">
+                 <div class="row">
+                <a class="col-12" id="article-anch11"></a>
+                    
+                    
+                <div class="col-12 white mt30 mb30">
+                        <h1>
+                            <img src="{{ theme.link }}/assets/img/armor-white.png" alt="armoiries de Saint-Macaire" class="p-20 d-inline-block  w-10">
+                            <span class="bk3 p-10">
+                                {{ post.title }}
+                            </span>
+                        </h1>
+                        <div>
+                            <img src="{{ item.get_field('image_6').url }}" alt="{{ item.get_field('image_6').alt }}" class="fl brd2 brd-c3 r10 p-10 mr20 mb20 m-a wmax-100 d-block hmax80vh ">
+                        </div>
+                        <a href="#" class="col-12 red p-10 t10 t-a-left toile2" rel="modal:close"><i class="fal fa-times"></i></a>
+                        {{ post.get_field('content') }}
+                    </div>
+                
+                    
+                </div>
+                <div class="h10 mt-10 white row">
+                    
+                    <hr class="brd-green col-md-3 d-none d-md-block"> 
+                    <div class="col-md-4 d-none d-md-block">
+                        
+                            <img src="{{ theme.link }}/assets/img/armor-white.png" alt="" class="w-10 d-block"> - tous droits réservés: saintmacaire.fr ®
+                    </div>
+                    <hr class="brd-green col-md-3 d-none d-md-block">
+                        
+                </div>
+            </div>
+            <!-- Link to open the modal -->
+            <a href="#pic-6" class="m-a col-12 col-md-4 p-10 toile2 mb30" rel="modal:open">
+                <div class="w-80 m-a">
+                    <img class="d-block w-100 brd5 brd-c4 shadow" src=" {{ item.get_field('image_6').url }} " alt="photo de {{ item.get_field('image_6').alt }} ">
+                </div>
+            </a>
+        {% endif %}
+        {# image 7 #}
+        {% if item.get_field('image_7') %}
+             <div id="pic-7" class="row toile2 modal wmax-90 m-a mt-10 modal-prime">
+                 <div class="row">
+                <a class="col-12" id="article-anch11"></a>
+                    
+                    
+                <div class="col-12 white mt30 mb30">
+                        <h1>
+                            <img src="{{ theme.link }}/assets/img/armor-white.png" alt="armoiries de Saint-Macaire" class="p-20 d-inline-block  w-10">
+                            <span class="bk3 p-10">
+                                {{ post.title }}
+                            </span>
+                        </h1>
+                        <div>
+                            <img src="{{ item.get_field('image_7').url }}" alt="{{ item.get_field('image_7').alt }}" class="fl brd2 brd-c3 r10 p-10 mr20 mb20 m-a wmax-100 d-block hmax80vh ">
+                        </div>
+                        {{ post.get_field('content') }}
+                    </div>
+                
+                    
+                </div>
+                <div class="h10 mt-10 white row">
+                    
+                    <hr class="brd-green col-md-3 d-none d-md-block"> 
+                    <div class="col-md-4 d-none d-md-block">
+                        
+                            <img src="{{ theme.link }}/assets/img/armor-white.png" alt="" class="w-10 d-block"> - tous droits réservés: saintmacaire.fr ®
+                    </div>
+                    <hr class="brd-green col-md-3 d-none d-md-block">
+                        
+                </div>
+            </div>
+            <!-- Link to open the modal -->
+            <a href="#pic-7" class="m-a col-12 col-md-4 p-10 toile2 mb30" rel="modal:open">
+                <div class="w-80 m-a">
+                    <img class="d-block w-100 brd5 brd-c4 shadow" src=" {{ item.get_field('image_7').url }} " alt="photo de {{ item.get_field('image_7').alt }} ">
+                </div>
+            </a>
+        {% endif %}
+        {# image 8 #}
+        {% if item.get_field('image_8') %}
+             <div id="pic-8" class="row toile2 modal wmax-90 m-a mt-10 modal-prime">
+                 <div class="row">
+                    <a class="col-12" id="article-anch11"></a>
+                        
+                        
+                    <div class="col-12 white mt30 mb30">
+                        <h1>
+                            <img src="{{ theme.link }}/assets/img/armor-white.png" alt="armoiries de Saint-Macaire" class="p-20 d-inline-block  w-10">
+                            <span class="bk3 p-10">
+                                {{ post.title }}
+                            </span>
+                        </h1>
+                        <div>
+                            <img src="{{ item.get_field('image_8').url }}" alt="{{ item.get_field('image_8').alt }}" class="fl brd2 brd-c3 r10 p-10 mr20 mb20 m-a wmax-100 d-block hmax80vh ">
+                        </div>
+                        <a href="#" class="col-12 red p-10 t10 t-a-left toile2" rel="modal:close"><i class="fal fa-times"></i></a>
+                        {{ post.get_field('content') }}
+                    </div>
+                
+                    
+                </div>
+                <div class="h10 mt-10 white row">
+                    
+                    <hr class="brd-green col-md-3 d-none d-md-block"> 
+                    <div class="col-md-4 d-none d-md-block">
+                        
+                            <img src="{{ theme.link }}/assets/img/armor-white.png" alt="" class="w-10 d-block"> - tous droits réservés: saintmacaire.fr ®
+                    </div>
+                    <hr class="brd-green col-md-3 d-none d-md-block">
+                        
+                </div>
+            </div>
+            <!-- Link to open the modal -->
+            <a href="#pic-8" class="m-a col-12 col-md-4 p-10 toile2 mb30" rel="modal:open">
+                <div class="w-80 m-a">
+                    <img class="d-block w-100 brd5 brd-c4 shadow" src=" {{ item.get_field('image_8').url }} " alt="photo de {{ item.get_field('image_8').alt }} ">
+                </div>
+            </a>
+        {% endif %}
+        {# image 9 #}
+        {% if item.get_field('image_9') %}
+             <div id="pic-9" class="row toile2 modal wmax-90 m-a mt-10 modal-prime">
+                 <div class="row">
+                <a class="col-12" id="article-anch11"></a>
+                    
+                    
+                <div class="col-12 white mt30 mb30">
+                        <h1>
+                            <img src="{{ theme.link }}/assets/img/armor-white.png" alt="armoiries de Saint-Macaire" class="p-20 d-inline-block  w-10">
+                            <span class="bk3 p-10">
+                                {{ post.title }}
+                            </span>
+                        </h1>
+                        <div>
+                            <img src="{{ item.get_field('image_9').url }}" alt="{{ item.get_field('image_9').alt }}" class="fl brd2 brd-c3 r10 p-10 mr20 mb20 m-a wmax-100 d-block hmax80vh ">
+                        </div>
+                        <a href="#" class="col-12 red p-10 t10 t-a-left toile2" rel="modal:close"><i class="fal fa-times"></i></a>
+                        {{ post.get_field('content') }}
+                    </div>
+                
+                    
+                </div>
+                <div class="h10 mt-10 white row">
+                    
+                    <hr class="brd-green col-md-3 d-none d-md-block"> 
+                    <div class="col-md-4 d-none d-md-block">
+                        
+                            <img src="{{ theme.link }}/assets/img/armor-white.png" alt="" class="w-10 d-block"> - tous droits réservés: saintmacaire.fr ®
+                    </div>
+                    <hr class="brd-green col-md-3 d-none d-md-block">
+                        
+                </div>
+            </div>
+            <!-- Link to open the modal -->
+            <a href="#pic-9" class="m-a col-12 col-md-4 p-10 toile2 mb30" rel="modal:open">
+                <div class="w-80 m-a">
+                    <img class="d-block w-100 brd5 brd-c4 shadow" src=" {{ item.get_field('image_9').url }} " alt="photo de {{ item.get_field('image_9').alt }} ">
+                </div>
+            </a>
+        {% endif %}
+        {# image 10 #}
+        {% if item.get_field('image_10') %}
+             <div id="pic-10" class="row toile2 modal wmax-90 m-a mt-10 modal-prime">
+                 <div class="row">
+                <a class="col-12" id="article-anch11"></a>
+                    
+                    
+                <div class="col-12 white mt30 mb30">
+                        <h1>
+                            <img src="{{ theme.link }}/assets/img/armor-white.png" alt="armoiries de Saint-Macaire" class="p-20 d-inline-block  w-10">
+                            <span class="bk3 p-10">
+                                {{ post.title }}
+                            </span>
+                        </h1>
+                        <div>
+                            <img src="{{ item.get_field('image_10').url }}" alt="{{ item.get_field('image_10').alt }}" class="fl brd2 brd-c3 r10 p-10 mr20 mb20 m-a wmax-100 d-block hmax80vh ">
+                        </div>
+                        <a href="#" class="col-12 red p-10 t10 t-a-left toile2" rel="modal:close"><i class="fal fa-times"></i></a>
+                        {{ post.get_field('content') }}
+                    </div>
+                
+                    
+                </div>
+                <div class="h10 mt-10 white row">
+                    
+                    <hr class="brd-green col-md-3 d-none d-md-block"> 
+                    <div class="col-md-4 d-none d-md-block">
+                        
+                            <img src="{{ theme.link }}/assets/img/armor-white.png" alt="" class="w-10 d-block"> - tous droits réservés: saintmacaire.fr ®
+                    </div>
+                    <hr class="brd-green col-md-3 d-none d-md-block">
+                        
+                </div>
+            </div>
+            <!-- Link to open the modal -->
+            <a href="#pic-10" class="col-12 col-md-4 p-10 toile2 mb30" rel="modal:open">
+                <div class="w-80 m-a">
+                    <img class="d-block w-100 brd5 brd-c4 shadow" src=" {{ item.get_field('image_10').url }} " alt="photo de {{ item.get_field('image_10').alt }} ">
+                </div>
+            </a>
+        {% endif %}
+        {% if item.get_field('image_11') %}
+             <div id="pic-11" class="row toile2 modal wmax-90 m-a mt-10 modal-prime">
+                 <div class="row">
+                <a class="col-12" id="article-anch11"></a>
+                    
+                    
+                <div class="col-12 white mt30 mb30">
+                        <h1>
+                            <img src="{{ theme.link }}/assets/img/armor-white.png" alt="armoiries de Saint-Macaire" class="p-20 d-inline-block  w-10">
+                            <span class="bk3 p-10">
+                                {{ post.title }}
+                            </span>
+                        </h1>
+                        <div>
+                            <img src="{{ item.get_field('image_11').url }}" alt="{{ item.get_field('image_11').alt }}" class="fl brd2 brd-c3 r10 p-10 mr20 mb20 m-a wmax-100 d-block hmax80vh ">
+                        </div>
+                        <a href="#" class="col-12 red p-10 t10 t-a-left toile2" rel="modal:close"><i class="fal fa-times"></i></a>
+                        {{ post.get_field('content') }}
+                    </div>
+                
+                    
+                </div>
+                <div class="h10 mt-10 white row">
+                    
+                    <hr class="brd-green col-md-3 d-none d-md-block"> 
+                    <div class="col-md-4 d-none d-md-block">
+                        
+                            <img src="{{ theme.link }}/assets/img/armor-white.png" alt="" class="w-10 d-block"> - tous droits réservés: saintmacaire.fr ®
+                    </div>
+                    <hr class="brd-green col-md-3 d-none d-md-block">
+                        
+                </div>
+            </div>
+            <!-- Link to open the modal -->
+            <a href="#pic-11" class="col-12 col-md-4 p-10 toile2 mb30" rel="modal:open">
+                <div class="w-80 m-a">
+                    <img class="d-block w-100 brd5 brd-c4 shadow" src=" {{ item.get_field('image_11').url }} " alt="photo de {{ item.get_field('image_11').alt }} ">
+                </div>
+            </a>
+        {% endif %}
+        {# image 12 #}
+        {% if item.get_field('image_12') %}
+             <div id="pic-12" class="row toile2 modal wmax-90 m-a mt-10 modal-prime">
+                 <div class="row">
+                <a class="col-12" id="article-anch11"></a>
+                    
+                    
+                <div class="col-12 white mt30 mb30">
+                        <h1>
+                            <img src="{{ theme.link }}/assets/img/armor-white.png" alt="armoiries de Saint-Macaire" class="p-20 d-inline-block  w-10">
+                            <span class="bk3 p-10">
+                                {{ post.title }}
+                            </span>
+                        </h1>
+                        <div>
+                            <img src="{{ item.get_field('image_12').url }}" alt="{{ item.get_field('image_12').alt }}" class="fl brd2 brd-c3 r10 p-10 mr20 mb20 m-a wmax-100 d-block hmax80vh ">
+                        </div>
+                        <a href="#" class="col-12 red p-10 t10 t-a-left toile2" rel="modal:close"><i class="fal fa-times"></i></a>
+                        {{ post.get_field('content') }}
+                    </div>
+                
+                    
+                </div>
+                <div class="h10 mt-10 white row">
+                    
+                    <hr class="brd-green col-md-3 d-none d-md-block"> 
+                    <div class="col-md-4 d-none d-md-block">
+                        
+                            <img src="{{ theme.link }}/assets/img/armor-white.png" alt="" class="w-10 d-block"> - tous droits réservés: saintmacaire.fr ®
+                    </div>
+                    <hr class="brd-green col-md-3 d-none d-md-block">
+                        
+                </div>
+            </div>
+            <!-- Link to open the modal -->
+            <a href="#pic-12" class="col-12 col-md-4 p-10 toile2 mb30" rel="modal:open">
+                <div class="w-80 m-a">
+                    <img class="d-block w-100 brd5 brd-c4 shadow" src=" {{ item.get_field('image_12').url }} " alt="photo de {{ item.get_field('image_12').alt }} ">
+                </div>
+            </a>
+        {% endif %}
+        {# image 13 #}
+        {% if item.get_field('image_13') %}
+             <div id="pic-13" class="row toile2 modal wmax-90 m-a mt-10 modal-prime">
+                 <div class="row">
+                <a class="col-12" id="article-anch11"></a>
+                    
+                    
+                <div class="col-12 white mt30 mb30">
+                        <h1>
+                            <img src="{{ theme.link }}/assets/img/armor-white.png" alt="armoiries de Saint-Macaire" class="p-20 d-inline-block  w-10">
+                            <span class="bk3 p-10">
+                                {{ post.title }}
+                            </span>
+                        </h1>
+                        <div>
+                            <img src="{{ item.get_field('image_13').url }}" alt="{{ item.get_field('image_13').alt }}" class="fl brd2 brd-c3 r10 p-10 mr20 mb20 m-a wmax-100 d-block hmax80vh ">
+                        </div>
+                        <a href="#" class="col-12 red p-10 t10 t-a-left toile2" rel="modal:close"><i class="fal fa-times"></i></a>
+                        {{ post.get_field('content') }}
+                    </div>
+                
+                    
+                </div>
+                <div class="h10 mt-10 white row">
+                    
+                    <hr class="brd-green col-md-3 d-none d-md-block"> 
+                    <div class="col-md-4 d-none d-md-block">
+                        
+                            <img src="{{ theme.link }}/assets/img/armor-white.png" alt="" class="w-10 d-block"> - tous droits réservés: saintmacaire.fr ®
+                    </div>
+                    <hr class="brd-green col-md-3 d-none d-md-block">
+                        
+                </div>
+            </div>
+            <!-- Link to open the modal -->
+            <a href="#pic-13" class="col-12 col-md-4 p-10 toile2 mb30" rel="modal:open">
+                <div class="w-80 m-a">
+                    <img class="d-block w-100 brd5 brd-c4 shadow" src=" {{ item.get_field('image_13').url }} " alt="photo de {{ item.get_field('image_13').alt }} ">
+                </div>
+            </a>
+        {% endif %}
+        {# image 14 #}
+        {% if item.get_field('image_14') %}
+             <div id="pic-14" class="row toile2 modal wmax-90 m-a mt-10 modal-prime">
+                 <div class="row">
+                <a class="col-12" id="article-anch11"></a>
+                    
+                    
+                <div class="col-12 white mt30 mb30">
+                        <h1>
+                            <img src="{{ theme.link }}/assets/img/armor-white.png" alt="armoiries de Saint-Macaire" class="p-20 d-inline-block  w-10">
+                            <span class="bk3 p-10">
+                                {{ post.title }}
+                            </span>
+                        </h1>
+                        <div>
+                            <img src="{{ item.get_field('image_14').url }}" alt="{{ item.get_field('image_14').alt }}" class="fl brd2 brd-c3 r10 p-10 mr20 mb20 m-a wmax-100 d-block hmax80vh ">
+                        </div>
+                        <a href="#" class="col-12 red p-10 t10 t-a-left toile2" rel="modal:close"><i class="fal fa-times"></i></a>
+                        {{ post.get_field('content') }}
+                    </div>
+                
+                    
+                </div>
+                <div class="h10 mt-10 white row">
+                    
+                    <hr class="brd-green col-md-3 d-none d-md-block"> 
+                    <div class="col-md-4 d-none d-md-block">
+                        
+                            <img src="{{ theme.link }}/assets/img/armor-white.png" alt="" class="w-10 d-block"> - tous droits réservés: saintmacaire.fr ®
+                    </div>
+                    <hr class="brd-green col-md-3 d-none d-md-block">
+                        
+                </div>
+            </div>
+            <!-- Link to open the modal -->
+            <a href="#pic-14" class="col-12 col-md-4 p-10 toile2 mb30" rel="modal:open">
+                <div class="w-80 m-a">
+                    <img class="d-block w-100 brd5 brd-c4 shadow" src=" {{ item.get_field('image_14').url }} " alt="photo de {{ item.get_field('image_14').alt }} ">
+                </div>
+            </a>
+        {% endif %}
+        {# image 15     #}
+        {% if item.get_field('image_15') %}
+             <div id="pic-15" class="row toile2 modal wmax-90 m-a mt-10 modal-prime">
+                 <div class="row">
+                <a class="col-12" id="article-anch11"></a>
+                    
+                    
+                <div class="col-12 white mt30 mb30">
+                        <h1>
+                            <img src="{{ theme.link }}/assets/img/armor-white.png" alt="armoiries de Saint-Macaire" class="p-20 d-inline-block  w-10">
+                            <span class="bk3 p-10">
+                                {{ post.title }}
+                            </span>
+                        </h1>
+                        <div>
+                            <img src="{{ item.get_field('image_15').url }}" alt="{{ item.get_field('image_15').alt }}" class="fl brd2 brd-c3 r10 p-10 mr20 mb20 m-a wmax-100 d-block hmax80vh ">
+                        </div>
+                        <a href="#" class="col-12 red p-10 t10 t-a-left toile2" rel="modal:close"><i class="fal fa-times"></i></a>
+                        {{ post.get_field('content') }}
+                    </div>
+                
+                    
+                </div>
+                <div class="h10 mt-10 white row">
+                    
+                    <hr class="brd-green col-md-3 d-none d-md-block"> 
+                    <div class="col-md-4 d-none d-md-block">
+                        
+                            <img src="{{ theme.link }}/assets/img/armor-white.png" alt="" class="w-10 d-block"> - tous droits réservés: saintmacaire.fr ®
+                    </div>
+                    <hr class="brd-green col-md-3 d-none d-md-block">
+                        
+                </div>
+            </div>
+            <!-- Link to open the modal -->
+            <a href="#pic-15" class="col-12 col-md-4 p-10 toile2 mb30" rel="modal:open">
+                <div class="w-80 m-a">
+                    <img class="d-block w-100 brd5 brd-c4 shadow" src=" {{ item.get_field('image_15').url }} " alt="photo de {{ item.get_field('image_15').alt }} ">
+                </div>
+            </a>
+        {% endif %}
+        {# image 16 #}
+        {% if item.get_field('image_16') %}
+             <div id="pic-16" class="row toile2 modal wmax-90 m-a mt-10 modal-prime">
+                 <div class="row">
+                    <a class="col-12" id="article-anch11"></a>
+                        
+                        
+                    <div class="col-12 white mt30 mb30">
+                            <h1>
+                                <img src="{{ theme.link }}/assets/img/armor-white.png" alt="armoiries de Saint-Macaire" class="p-20 d-inline-block  w-10">
+                                <span class="bk3 p-10">
+                                    {{ post.title }}
+                                </span>
+                            </h1>
+                            <div>
+                                <img src="{{ item.get_field('image_16').url }}" alt="{{ item.get_field('image_16').alt }}" class="fl brd2 brd-c3 r10 p-10 mr20 mb20 m-a wmax-100 d-block hmax80vh ">
+                            </div>
+                            <a href="#" class="col-12 red p-10 t10 t-a-left toile2" rel="modal:close"><i class="fal fa-times"></i></a>
+                            {{ post.get_field('content') }}
+                        </div>
+                    
+                        
+                    </div>
+                    <div class="h10 mt-10 white row">
+                        
+                        <hr class="brd-green col-md-3 d-none d-md-block"> 
+                        <div class="col-md-4 d-none d-md-block">
+                            
+                                <img src="{{ theme.link }}/assets/img/armor-white.png" alt="" class="w-10 d-block"> - tous droits réservés: saintmacaire.fr ®
+                        </div>
+                        <hr class="brd-green col-md-3 d-none d-md-block">
+                            
+                    </div>
+                </div>
+            </div>
+            <!-- Link to open the modal -->
+            <a href="#pic-16" class="col-12 col-md-4 p-10 toile2 mb30" rel="modal:open">
+                <div class="w-80 m-a">
+                    <img class="d-block w-100 brd5 brd-c4 shadow" src=" {{ item.get_field('image_16').url }} " alt="photo de {{ item.get_field('image_16').alt }} ">
+                </div>
+            </a>
+        {% endif %}
+        {# image 17 #}
+        {% if item.get_field('image_17') %}
+             <div id="pic-17" class="row toile2 modal wmax-90 m-a mt-10 modal-prime">
+                 <div class="row">
+                <a class="col-12" id="article-anch11"></a>
+                    
+                    
+                <div class="col-12 white mt30 mb30">
+                        <h1>
+                            <img src="{{ theme.link }}/assets/img/armor-white.png" alt="armoiries de Saint-Macaire" class="p-20 d-inline-block  w-10">
+                            <span class="bk3 p-10">
+                                {{ post.title }}
+                            </span>
+                        </h1>
+                        <div>
+                            <img src="{{ item.get_field('image_17').url }}" alt="{{ item.get_field('image_17').alt }}" class="fl brd2 brd-c3 r10 p-10 mr20 mb20 m-a wmax-100 d-block hmax80vh ">
+                        </div>
+                        <a href="#" class="col-12 red p-10 t10 t-a-left toile2" rel="modal:close"><i class="fal fa-times"></i></a>
+                        {{ post.get_field('content') }}
+                    </div>
+                
+                    
+                </div>
+                <div class="h10 mt-10 white row">
+                    
+                    <hr class="brd-green col-md-3 d-none d-md-block"> 
+                    <div class="col-md-4 d-none d-md-block">
+                        
+                            <img src="{{ theme.link }}/assets/img/armor-white.png" alt="" class="w-10 d-block"> - tous droits réservés: saintmacaire.fr ®
+                    </div>
+                    <hr class="brd-green col-md-3 d-none d-md-block">
+                        
+                </div>
+            </div>
+            <!-- Link to open the modal -->
+            <a href="#pic-17" class="col-12 col-md-4 p-10 toile2 mb30" rel="modal:open">
+                <div class="w-80 m-a">
+                    <img class="d-block w-100 brd5 brd-c4 shadow" src=" {{ item.get_field('image_17').url }} " alt="photo de {{ item.get_field('image_17').alt }} ">
+                </div>
+            </a>
+        {% endif %}
+        {# image 18 #}
+        {% if item.get_field('image_18') %}
+             <div id="pic-18" class="row toile2 modal wmax-90 m-a mt-10 modal-prime">
+                 <div class="row">
+                <a class="col-12" id="article-anch11"></a>
+                    
+                    
+                <div class="col-12 white mt30 mb30">
+                        <h1>
+                            <img src="{{ theme.link }}/assets/img/armor-white.png" alt="armoiries de Saint-Macaire" class="p-20 d-inline-block  w-10">
+                            <span class="bk3 p-10">
+                                {{ post.title }}
+                            </span>
+                        </h1>
+                        <div>
+                            <img src="{{ item.get_field('image_18').url }}" alt="{{ item.get_field('image_18').alt }}" class="fl brd2 brd-c3 r10 p-10 mr20 mb20 m-a wmax-100 d-block hmax80vh ">
+                        </div>
+                        <a href="#" class="col-12 red p-10 t10 t-a-left toile2" rel="modal:close"><i class="fal fa-times"></i></a>
+                        {{ post.get_field('content') }}
+                    </div>
+                
+                    
+                </div>
+                <div class="h10 mt-10 white row">
+                    
+                    <hr class="brd-green col-md-3 d-none d-md-block"> 
+                    <div class="col-md-4 d-none d-md-block">
+                        
+                            <img src="{{ theme.link }}/assets/img/armor-white.png" alt="" class="w-10 d-block"> - tous droits réservés: saintmacaire.fr ®
+                    </div>
+                    <hr class="brd-green col-md-3 d-none d-md-block">
+                        
+                </div>
+            </div>
+            <!-- Link to open the modal -->
+            <a href="#pic-18" class="col-12 col-md-4 p-10 toile2 mb30" rel="modal:open">
+                <div class="w-80 m-a">
+                    <img class="d-block w-100 brd5 brd-c4 shadow" src=" {{ item.get_field('image_18').url }} " alt="photo de {{ item.get_field('image_18').alt }} ">
+                </div>
+            </a>
+        {% endif %}
+        {# image 19 #}
+        {% if item.get_field('image_19') %}
+             <div id="pic-19" class="row toile2 modal wmax-90 m-a mt-10 modal-prime">
+                 <div class="row">
+                <a class="col-12" id="article-anch11"></a>
+                    
+                    
+                <div class="col-12 white mt30 mb30">
+                        <h1>
+                            <img src="{{ theme.link }}/assets/img/armor-white.png" alt="armoiries de Saint-Macaire" class="p-20 d-inline-block  w-10">
+                            <span class="bk3 p-10">
+                                {{ post.title }}
+                            </span>
+                        </h1>
+                        <div>
+                            <img src="{{ item.get_field('image_19').url }}" alt="{{ item.get_field('image_19').alt }}" class="fl brd2 brd-c3 r10 p-10 mr20 mb20 m-a wmax-100 d-block hmax80vh ">
+                        </div>
+                        <a href="#" class="col-12 red p-10 t10 t-a-left toile2" rel="modal:close"><i class="fal fa-times"></i></a>
+                        {{ post.get_field('content') }}
+                    </div>
+                
+                    
+                </div>
+                <div class="h10 mt-10 white row">
+                    
+                    <hr class="brd-green col-md-3 d-none d-md-block"> 
+                    <div class="col-md-4 d-none d-md-block">
+                        
+                            <img src="{{ theme.link }}/assets/img/armor-white.png" alt="" class="w-10 d-block"> - tous droits réservés: saintmacaire.fr ®
+                    </div>
+                    <hr class="brd-green col-md-3 d-none d-md-block">
+                        
+                </div>
+            </div>
+            <!-- Link to open the modal -->
+            <a href="#pic-19" class="col-12 col-md-4 p-10 toile2 mb30" rel="modal:open">
+                <div class="w-80 m-a">
+                    <img class="d-block w-100 brd5 brd-c4 shadow" src=" {{ item.get_field('image_19').url }} " alt="photo de {{ item.get_field('image_19').alt }} ">
+                </div>
+            </a>
+        {% endif %}
+        {# image 20 #}
+        {% if item.get_field('image_20') %}
+             <div id="pic-20" class="row toile2 modal wmax-90 m-a mt-10 modal-prime">
+                 <div class="row">
+                <a class="col-12" id="article-anch11"></a>
+                    
+                    
+                <div class="col-12 white mt30 mb30">
+                        <h1>
+                            <img src="{{ theme.link }}/assets/img/armor-white.png" alt="armoiries de Saint-Macaire" class="p-20 d-inline-block  w-10">
+                            <span class="bk3 p-10">
+                                {{ post.title }}
+                            </span>
+                        </h1>
+                        <div>
+                            <img src="{{ item.get_field('image_20').url }}" alt="{{ item.get_field('image_20').alt }}" class="fl brd2 brd-c3 r10 p-10 mr20 mb20 m-a wmax-100 d-block hmax80vh ">
+                        </div>
+                        <a href="#" class="col-12 red p-10 t10 t-a-left toile2" rel="modal:close"><i class="fal fa-times"></i></a>
+                        {{ post.get_field('content') }}
+                    </div>
+                
+                    
+                </div>
+                <div class="h10 mt-10 white row">
+                    
+                    <hr class="brd-green col-md-3 d-none d-md-block"> 
+                    <div class="col-md-4 d-none d-md-block">
+                        
+                            <img src="{{ theme.link }}/assets/img/armor-white.png" alt="" class="w-10 d-block"> - tous droits réservés: saintmacaire.fr ®
+                    </div>
+                    <hr class="brd-green col-md-3 d-none d-md-block">
+                        
+                </div>
+            </div>
+            <!-- Link to open the modal -->
+            <a href="#pic-20" class="col-12 col-md-4 p-10 toile2 mb30" rel="modal:open">
+                <div class="w-80 m-a">
+                    <img class="d-block w-100 brd5 brd-c4 shadow" src=" {{ item.get_field('image_20').url }} " alt="photo de {{ item.get_field('image_20').alt }} ">
+                </div>
+            </a>
+        {% endif %}
+
+        
+        </div> 
+    {% endfor %}

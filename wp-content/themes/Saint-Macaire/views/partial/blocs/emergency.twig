@@ -1,0 +1,28 @@
+{% if services %}
+<a id="article-num"></a>
+<h2>
+    <span class="bk3 color4 p-10"><i class="fal fa-hospital-symbol white"></i> {{ 'n° d\'urgence'|upper }}</span>
+</h2>
+    <div class="row t-a-center">
+        {% for item in services %}
+            {% for term in item.terms if term.name == 'services d\'urgence'%}
+            
+                    <a href=" {{ item.link }} " class=" col-12 col-md-4 p-10 m-a mt20 row">
+                        <div class="offset-md-2 d-none d-md-block"></div>
+                        <div class="col-10 col-md-8 p-10">
+                            <img src="{{ item.thumbnail.src }}" alt="{{ item.thumbnail.alt }}" class="w-100 d-block m-a r-50 shadow">
+                        </div>
+                        <div class="offset-md-2 d-none d-md-block"></div>
+                        <p class="color4 col-12 t-a-center">
+                            {{ item.name }}
+                        </p>
+                        <h1 class="col-12 t-a-center color3 p-10">
+                            {{ item.get_field('tel') }}
+                        </h1>
+                    </a>
+            
+            {% endfor %}
+        {% endfor %}
+    </div>
+
+{% endif %}
