@@ -157,7 +157,7 @@ class FormEditor {
           'iframe'    => Export::get('iframe', $form),
           'shortcode' => Export::get('shortcode', $form),
       ],
-      'pages' => Pages::getAll(),
+      'mailpoet_pages' => Pages::getMailPoetPages(),
       'segments' => Segment::getSegmentsWithSubscriberCount(),
       'styles' => $this->formRenderer->getCustomStyles($form),
       'date_types' => array_map(function ($label, $value) {
@@ -173,6 +173,13 @@ class FormEditor {
       'preview_page_url' => $this->getPreviewPageUrl(),
       'custom_fonts' => CustomFonts::FONTS,
       'translations' => $this->getGutenbergScriptsTranslations(),
+      'posts' => $this->getAllPosts(),
+      'pages' => $this->getAllPages(),
+      'categories' => $this->getAllCategories(),
+      'tags' => $this->getAllTags(),
+      'products' => $this->getWooCommerceProducts(),
+      'product_categories' => $this->getWooCommerceCategories(),
+      'product_tags' => $this->getWooCommerceTags(),
     ];
     $this->wp->wpEnqueueMedia();
     $this->pageRenderer->displayPage('form/editor.html', $data);
@@ -256,5 +263,58 @@ class FormEditor {
       }
     }
     return $translations;
+  }
+
+  private function getAllPosts() {
+    return $this->formatPosts($this->wp->getPosts(['numberposts' => -1]));
+  }
+
+  private function getWooCommerceProducts() {
+    return $this->formatPosts($this->wp->getPosts(['post_type' => 'product', 'numberposts' => -1]));
+  }
+
+  private function getAllPages() {
+    return $this->formatPosts($this->wp->getPages());
+  }
+
+  private function getWooCommerceCategories() {
+    return $this->formatTerms($this->wp->getCategories(['taxonomy' => 'product_cat']));
+  }
+
+  private function getWooCommerceTags() {
+    return $this->formatTerms($this->wp->getTerms('product_tag'));
+  }
+
+  private function getAllCategories() {
+    return $this->formatTerms($this->wp->getCategories());
+  }
+
+  private function getAllTags() {
+    return $this->formatTerms($this->wp->getTags());
+  }
+
+  private function formatPosts($posts) {
+    if (empty($posts)) return [];
+    $result = [];
+    foreach ($posts as $post) {
+      $result[] = [
+        'id' => $post->ID,
+        'name' => $post->post_title,// phpcs:ignore Squiz.NamingConventions.ValidVariableName.NotCamelCaps
+      ];
+    }
+    return $result;
+  }
+
+  private function formatTerms($terms) {
+    if (empty($terms)) return [];
+    if (!is_array($terms)) return []; // there can be instance of WP_Error instead of list of terms if woo commerce is not active
+    $result = [];
+    foreach ($terms as $term) {
+      $result[] = [
+        'id' => $term->term_id,// phpcs:ignore Squiz.NamingConventions.ValidVariableName.NotCamelCaps
+        'name' => $term->name,
+      ];
+    }
+    return $result;
   }
 }

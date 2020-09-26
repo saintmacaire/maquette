@@ -158,7 +158,7 @@ class DisplayFormInWPContent {
 
     $templateData['delay'] = $formSettings['form_placement'][$displayType]['delay'] ?? 0;
     $templateData['position'] = $formSettings['form_placement'][$displayType]['position'] ?? '';
-    $templateData['backgroundColor'] = $formSettings['backgroundColor'] ?? '';
+    $templateData['animation'] = $formSettings['form_placement'][$displayType]['animation'] ?? '';
     $templateData['fontFamily'] = $formSettings['font_family'] ?? '';
     $templateData['enableExitIntent'] = false;
     if (
@@ -190,17 +190,44 @@ class DisplayFormInWPContent {
       return false;
     }
 
-    $key = '';
-    if ($this->wp->isSingular('post')) {
-      $key = 'posts';
+    if ($this->wp->isSingular('post') || $this->wp->isSingular('product')) {
+      if ($this->shouldDisplayFormOnPost($setup, 'posts')) return true;
+      if ($this->shouldDisplayFormOnCategory($setup)) return true;
+      if ($this->shouldDisplayFormOnTag($setup)) return true;
+      return false;
     }
-    if ($this->wp->isPage()) {
-      $key = 'pages';
+    if ($this->wp->isPage() && $this->shouldDisplayFormOnPost($setup, 'pages')) {
+      return true;
     }
 
-    // is enabled for this page?
-    return (isset($setup[$key])
-      && isset($setup[$key]['all'])
-      && $setup[$key]['all'] === '1');
+    return false;
+  }
+
+  private function shouldDisplayFormOnPost(array $setup, string $postsKey): bool {
+    if (!isset($setup[$postsKey])) {
+      return false;
+    }
+    if (isset($setup[$postsKey]['all']) && $setup[$postsKey]['all'] === '1') {
+      return true;
+    }
+    $post = $this->wp->getPost(null, ARRAY_A);
+    if (isset($setup[$postsKey]['selected']) && in_array($post['ID'], $setup[$postsKey]['selected'])) {
+      return true;
+    }
+    return false;
+  }
+
+  private function shouldDisplayFormOnCategory(array $setup): bool {
+    if (!isset($setup['categories'])) return false;
+    if ($this->wp->hasCategory($setup['categories'])) return true;
+    if ($this->wp->hasTerm($setup['categories'], 'product_cat')) return true;
+    return false;
+  }
+
+  private function shouldDisplayFormOnTag(array $setup): bool {
+    if (!isset($setup['tags'])) return false;
+    if ($this->wp->hasTag($setup['tags'])) return true;
+    if ($this->wp->hasTerm($setup['tags'], 'product_tag')) return true;
+    return false;
   }
 }

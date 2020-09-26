@@ -5992,6 +5992,8 @@ span.CodeMirror-selectedtext { background: none; }
 
 .form-placement-settings { width: 400px; }
 
+.form-editor-sidebar-heading { margin-bottom: 8px; }
+
 .form-placement-option-label { align-items: center; color: #23282d; display: flex; font-size: 14px; height: 40px; justify-content: center; pointer-events: none; width: 100%; z-index: 2; }
 
 .form-placement-option-label p { line-height: 1.2; margin-bottom: 0; }
@@ -6001,6 +6003,8 @@ span.CodeMirror-selectedtext { background: none; }
 .form-placement-option-icon svg { height: 63px; width: 76px; }
 
 .mailpoet-form-placement-save { display: flex; flex-direction: row; justify-content: flex-end; }
+
+.form-editor-placement-selection { max-width: 280px; }
 
 .mailpoet_spinner_wrapper { align-items: center; background: #fff; display: flex; flex-direction: column; height: 100%; justify-content: center; width: 100%; }
 
@@ -6027,6 +6031,10 @@ span.CodeMirror-selectedtext { background: none; }
 .mailpoet_preview_content_wrapper { display: flex; flex-direction: row; height: 100%; }
 
 .mailpoet_preview_content_wrapper .mailpoet_preview_sidebar { padding: 42px 16px 10px 0; width: 300px; }
+
+.mailpoet_preview_content_wrapper .mailpoet_preview_sidebar b { font-weight: bold; }
+
+.mailpoet_preview_content_wrapper .mailpoet_preview_sidebar .form-editor-sidebar-heading { color: #1e1e1e; font-size: 13px; }
 
 .mailpoet-form-submit-button .block-editor-block-toolbar > .components-toolbar-group, .mailpoet-form-email-input .block-editor-block-toolbar > .components-toolbar-group { display: none; }
 

@@ -63,7 +63,8 @@ a,
 .toile:hover .caption2,
 .toile2:hover .caption2,
 .img:hover + .caption2{
-  opacity: 0.9;
+    opacity: 0.9;
+   margin: 10px !important;
 
 }
 .toile:hover .caption2 a,
@@ -269,11 +270,51 @@ ul#portfolio-filter a.current {
   background-color: $color8 !important;
 }
 .resources-line:hover{
-  background-color: $color7;
+  background-color: $color1 !important;
   font-size: 110% !important;
   padding: 20px !important;
-  border: 3px solid greenyellow;
-  color: greenyellow;
+  border: 20px solid $color3;
+  transition: 0.3s !important;
+}
+.resources-line2:hover{
+  background-color: $color4;
+  font-size: 110% !important;
+  padding: 20px !important;
+  border: 20px solid $color3;
+    transition: 0.3s !important;
+}
+
+.resources-line2:hover{
+    color: $color3 !important;
+    transition: 0.3s !important;
+}
+.resources-line:hover a{
+    color: white !important;
+    font-size: 110%;
+    transition: 0.3s !important;
+}
+.resources-line2:hover a{
+    color:$color4 !important;
+    font-size: 110%;
+    transition: 0.3s !important;
+    background-color: $color3 !important;
+}
+.resources-line2:hover div{
+    color: $color3 !important;
+    font-size: 110%;
+    transition: 0.3s !important;
+}
+.toile:hover div{
+    color: $color4 !important;
+   background: $color3 !important;
+}
+.toile:hover p{
+    color: black !important;
+    background: transparent !important;
+}
+.caption-service{
+    background-color: $color3 !important;
+    color: $color4 !important;
 }
 input[type=submit]:hover{
   background-color: $color4 !important;

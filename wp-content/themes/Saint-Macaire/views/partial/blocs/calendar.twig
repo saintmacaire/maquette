@@ -17,11 +17,11 @@
 					
 				</p>
 			{% endif %}
-			<a href=" {{ item.link }} " class="row brd1 brd-c3 resources-line ">
+			<a href=" {{ item.link }} " class="row brd1 brd-c3 resources-line2 ">
 				<div class="col-12 col-md-2 p-10">
 					<img src=" {{ item.thumbnail.src }} " alt=" {{ item.thumbnail.alt }} " class="r-50 w-100 d-block">
 				</div>
-				<div class="col-12 col-md-5 color4 pt20 date color3">
+				<div class="col-12 col-md-5 color4 pt20 date color4">
 					{% if item.get_field('end')|date and item.get_field('begin') != item.get_field('end') %} 
 						{{ item.get_field('begin')|date('j F Y') }} au {{ item.get_field('end')|date('j F Y') }} 
 					{% else %} 
@@ -30,7 +30,7 @@
 					
 				</div>
 				
-				<div class="col-12 col-md-5 green date pt20">
+				<div class="col-12 col-md-5 white date pt20">
 					{{ item.title }}
 					
 				</div>
@@ -46,7 +46,7 @@
 					</span>
 				</p>
 			{% endif %}
-			<a href=" {{ item.link }} " class="row brd1 brd-c3 resources-line ">
+			<a href=" {{ item.link }} " class="row brd1 brd-c3 resources-line2 ">
 				<div class="col-12 col-md-2 p-10">
 					<img src=" {{ item.thumbnail.src }} " alt=" {{ item.thumbnail.alt }} " class="r-50 w-100 d-block">
 				</div>
@@ -74,7 +74,7 @@
 					</span>
 				</p>
 			{% endif %}
-			<a href=" {{ item.link }} " class="row brd1 brd-c3 resources-line ">
+			<a href=" {{ item.link }} " class="row brd1 brd-c3 resources-line2 ">
 				<div class="col-12 col-md-2 p-10">
 					<img src=" {{ item.thumbnail.src }} " alt=" {{ item.thumbnail.alt }} " class="r-50 w-100 d-block">
 				</div>
@@ -105,7 +105,7 @@
 					</span>
 				</p>
 				{% endif %}
-				<a href=" {{ item.link }} " class="row brd1 bk2 brd-c3 resources-line ">
+				<a href=" {{ item.link }} " class="row brd1 bk-white brd-c3 resources-line2 ">
 					<div class="col-12 col-md-2 p-10">
 						<img src=" {{ item.thumbnail.src }} " alt=" {{ item.thumbnail.alt }} " class="r-50 w-100 d-block">
 					</div>

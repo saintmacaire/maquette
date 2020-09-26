@@ -8,7 +8,7 @@
     <div class="row">
         {% for item in posts %}
             {% for term in item.terms if term.name =='démarches' %}
-                <a href=" {{ item.link }} " class="resources-line m-a mb50 brd1 brd-c5 r20 shadow col-12 col-md-3 p-30">
+                <a href=" {{ item.link }} " class="resources-line2 m-a mb50 brd1 brd-c5 r20 shadow col-12 col-md-3 p-30">
                     <img src=" {{ item.thumbnail.src }} " alt="item.thumbnail.alt" class="r-50 d-block w-10">
                     <p class="p-10 color3 t-center">
                         {{item.title|capitalize}}

@@ -207,6 +207,10 @@ ul,
   -moz-box-shadow: 10px 5px 5px $color5 !important;
   box-shadow: 10px 5px 5px $color5 !important;
 }
+.toile .caption2{
+    transition: 0.5s !important;
+     z-index: 5 !important;
+}
 .float-thumb{
   height: auto;
   float: none;
@@ -304,8 +308,14 @@ ul,
 .contact-bloc2 {
   line-height: 60px;
 }
-.resources-line{
-  transition: 0.3s;
+.resources-line,
+.resources-line2{
+    transition: 1s !important;
+    cursor: pointer !important;
+}
+.puce{
+    opacity: 0 !important;
+    transition: 0.3s !important;
 }
 .connected-link{
   transition: 0.3s;

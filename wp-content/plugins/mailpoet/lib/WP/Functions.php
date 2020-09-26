@@ -163,6 +163,10 @@ class Functions {
     return get_categories($args);
   }
 
+  public function getTags($args = '') {
+    return get_tags($args);
+  }
+
   public function getComment($comment = null, $output = OBJECT) {
     return get_comment($comment, $output);
   }
@@ -229,6 +233,18 @@ class Functions {
 
   public function getPost($post = null, $output = OBJECT, $filter = 'raw') {
     return get_post($post, $output, $filter);
+  }
+
+  public function hasCategory($category = '', $post = null): bool {
+    return has_category($category, $post);
+  }
+
+  public function hasTag($tag = '', $post = null): bool {
+    return has_tag($tag, $post);
+  }
+
+  public function hasTerm($term = '', $taxonomy = '', $post = null): bool {
+    return has_term($term, $taxonomy, $post);
   }
 
   public function getPostThumbnailId($post = null) {

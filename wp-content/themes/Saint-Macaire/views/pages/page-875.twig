@@ -16,7 +16,7 @@
         <div class="row m-a  h-a ">
             {% for item in acts if now|date('U') <= item.get_field('begin') or now|date('U') < item.get_field('end') %}
                 {% for term in item.terms  if  term.name == 'culture' or term.name == 'vie locale' or term.name ==  'vie associative'  %}
-                <a href=" {{ item.link }} " class="{% if item.terms %}{% for term in item.terms  %}{{ term.id }} {% endfor %}{% endif %} element-item col-12 row resources-line bk5 p-10 toile2 m-a">
+                <a href=" {{ item.link }} " class="{% if item.terms %}{% for term in item.terms  %}{{ term.id }} {% endfor %}{% endif %} element-item col-12 row resources-line2 bk5 p-10 toile2 m-a">
                     <div class="col-12 col-md-3">
                         {% if term.parent == 0 %}
                             <span class="bk3 white p-10">

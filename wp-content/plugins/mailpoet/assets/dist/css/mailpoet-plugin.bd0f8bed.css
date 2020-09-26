@@ -1442,7 +1442,7 @@ ul.mailpoet_boxes { display: flex; flex-wrap: wrap; width: 100%; }
 
 .mailpoet_form td { vertical-align: top !important; }
 
-.select2-container { width: 25em !important; }
+.select2-container { max-width: 100%; width: 25em !important; }
 
 input.select2-search__field::-webkit-input-placeholder { color: #999; }
 
