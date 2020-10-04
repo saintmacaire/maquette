@@ -23,8 +23,10 @@ $context['post'] = $post;
 
 $args_events = [
     'post_type' => 'events',
+    'meta_key' => 'begin',
+    'orderby' => 'begin',
+    'posts_per_page' => -1,
     'order' => 'ASC',
-    'orderby' => 'date'
 ];
 $args_places = [
     'post_type' => 'places',

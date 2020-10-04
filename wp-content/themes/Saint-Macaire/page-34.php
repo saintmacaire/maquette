@@ -34,9 +34,10 @@ $args_gals = [
 ];
 $args_events = [
     'post_type' => 'events',
-    'order' => 'ASC',
-    'orderby' => 'date',
+    'meta_key' => 'begin',
+    'orderby' => 'begin',
     'posts_per_page' => -1,
+    'order' => 'ASC',
 ];
 $args_places = [
     'post_type' => 'places',

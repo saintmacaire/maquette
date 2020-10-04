@@ -5,6 +5,7 @@ namespace MailPoet\Models;
 if (!defined('ABSPATH')) exit;
 
 
+use MailPoet\Util\Helpers;
 use MailPoet\WP\Functions as WPFunctions;
 
 /**
@@ -91,7 +92,7 @@ class ScheduledTaskSubscriber extends Model {
       ->select('subscribers.first_name', 'firstName');
     if (isset($data['search'])) {
       $search = trim($data['search']);
-      $search = str_replace(['\\', '%', '_'], ['\\\\', '\\%', '\\_'], $search); // escape for 'LIKE'
+      $search = Helpers::escapeSearch($search);
       if (strlen($search) === 0) {
         return $query;
       }

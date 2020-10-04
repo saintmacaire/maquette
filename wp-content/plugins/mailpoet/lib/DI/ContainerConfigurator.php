@@ -133,7 +133,12 @@ class ContainerConfigurator implements IContainerConfigurator {
     $container->autowire(\MailPoet\PostEditorBlocks\PostEditorBlock::class);
     $container->autowire(\MailPoet\PostEditorBlocks\SubscriptionFormBlock::class);
     // Dynamic segments
-    $container->autowire(\MailPoet\DynamicSegments\DynamicSegmentHooks::class);
+    $container->autowire(\MailPoet\DynamicSegments\FreePluginConnectors\AddToNewslettersSegments::class);
+    $container->autowire(\MailPoet\DynamicSegments\Mappers\DBMapper::class);
+    $container->autowire(\MailPoet\DynamicSegments\Persistence\Loading\Loader::class);
+    $container->autowire(\MailPoet\DynamicSegments\Persistence\Loading\SubscribersCount::class);
+    $container->autowire(\MailPoet\DynamicSegments\Persistence\Loading\SubscribersIds::class);
+    $container->autowire(\MailPoet\DynamicSegments\Persistence\Loading\SingleSegmentLoader::class);
     // Cron
     $container->autowire(\MailPoet\Cron\CronHelper::class)->setPublic(true);
     $container->autowire(\MailPoet\Cron\CronTrigger::class)->setPublic(true);
@@ -177,7 +182,7 @@ class ContainerConfigurator implements IContainerConfigurator {
     $container->autowire(\MailPoet\Form\Util\FieldNameObfuscator::class)->setPublic(true);
     $container->autowire(\MailPoet\Form\AssetsController::class)->setPublic(true);
     $container->autowire(\MailPoet\Form\DisplayFormInWPContent::class);
-    $container->autowire(\MailPoet\Form\FormsRepository::class);
+    $container->autowire(\MailPoet\Form\FormsRepository::class)->setPublic(true);
     $container->autowire(\MailPoet\Form\Renderer::class)->setPublic(true);
     $container->autowire(\MailPoet\Form\BlocksRenderer::class);
     $container->autowire(\MailPoet\Form\BlockStylesRenderer::class);
@@ -248,10 +253,15 @@ class ContainerConfigurator implements IContainerConfigurator {
     $container->autowire(\MailPoet\Subscribers\SubscriberCustomFieldRepository::class);
     $container->autowire(\MailPoet\Subscribers\Statistics\SubscriberStatisticsRepository::class);
     // Segments
-    $container->autowire(\MailPoet\Segments\SubscribersListings::class)->setPublic(true);
     $container->autowire(\MailPoet\Segments\WooCommerce::class)->setPublic(true);
-    $container->autowire(\MailPoet\Segments\SubscribersFinder::class);
+    $container->autowire(\MailPoet\Segments\SubscribersFinder::class)->setPublic(true);
     $container->autowire(\MailPoet\Segments\SegmentsRepository::class);
+    $container->autowire(\MailPoet\Segments\SegmentSubscribersRepository::class)->setPublic(true);
+    $container->autowire(\MailPoet\Segments\DynamicSegments\FilterHandler::class)->setPublic(true);
+    $container->autowire(\MailPoet\Segments\DynamicSegments\Filters\EmailAction::class)->setPublic(true);
+    $container->autowire(\MailPoet\Segments\DynamicSegments\Filters\UserRole::class)->setPublic(true);
+    $container->autowire(\MailPoet\Segments\DynamicSegments\Filters\WooCommerceProduct::class)->setPublic(true);
+    $container->autowire(\MailPoet\Segments\DynamicSegments\Filters\WooCommerceCategory::class)->setPublic(true);
     // Services
     $container->autowire(\MailPoet\Services\Bridge::class)->setPublic(true);
     $container->autowire(\MailPoet\Services\AuthorizedEmailsController::class);
@@ -296,7 +306,7 @@ class ContainerConfigurator implements IContainerConfigurator {
     $container->autowire(\MailPoet\Newsletter\Renderer\Blocks\Text::class);
     $container->autowire(\MailPoet\Newsletter\Renderer\Columns\Renderer::class);
     $container->autowire(\MailPoet\Newsletter\Renderer\Preprocessor::class);
-    $container->autowire(\MailPoet\Newsletter\Renderer\Renderer::class);
+    $container->autowire(\MailPoet\Newsletter\Renderer\Renderer::class)->setPublic(true);
     $container->autowire(\MailPoet\Newsletter\Segment\NewsletterSegmentRepository::class);
     $container->autowire(\MailPoet\Newsletter\Statistics\NewsletterStatisticsRepository::class);
     $container->autowire(\MailPoet\Newsletter\Scheduler\WelcomeScheduler::class)->setPublic(true);

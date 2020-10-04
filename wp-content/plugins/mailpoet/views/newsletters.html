@@ -31,7 +31,6 @@
       var mailpoet_mss_key_invalid = <%= mss_key_invalid ? 'true' : 'false' %>;
 
       var has_mss_key_specified = <%= json_encode(has_mss_key_specified) %>;
-      var MSS_pitch_illustration_url = '<%= cdn_url('welcome-wizard/illu-pitch-mss.20190912.png') %>';
       var mailpoet_account_url = '<%= add_referral_id("https://account.mailpoet.com/?s=" ~ subscriber_count ~ "&email=" ~ current_wp_user.user_email) | escape('js') %>';
       var mailpoet_feature_flags = <%= json_encode(mailpoet_feature_flags) %>;
 
@@ -42,7 +41,13 @@
       var mailpoet_feature_announcement_has_news = <%= json_encode(feature_announcement_has_news) %>;
       var mailpoet_last_announcement_seen = <%= json_encode(last_announcement_seen) %>;
       var mailpoet_user_locale = '<%= get_locale() %>';
-      var mailpoet_congratulations_success_image = '<%= cdn_url('newsletter/congrat-illu-success.20181121-1440.png') %>';
+      var mailpoet_congratulations_success_images = [
+        '<%= cdn_url('newsletter/congratulate-1.png') %>',
+        '<%= cdn_url('newsletter/congratulate-2.png') %>',
+        '<%= cdn_url('newsletter/congratulate-3.png') %>',
+        '<%= cdn_url('newsletter/congratulate-4.png') %>',
+      ];
+      var mailpoet_congratulations_error_image = '<%= cdn_url('newsletter/error.png') %>';
       var mailpoet_congratulations_loading_image = '<%= cdn_url('newsletter/congratulation-page-illustration-transparent-LQ.20181121-1440.png') %>';
       var mailpoet_main_page = '<%= mailpoet_main_page %>';
       var mailpoet_review_request_illustration_url = '<%= cdn_url('review-request/review-request-illustration.20190815-1427.svg') %>';
@@ -74,7 +79,7 @@
     'stepNameTypeStandard': __('Newsletter'),
     'stepNameTypeWelcome': __('Welcome Email'),
     'stepNameTypeNotification': __('Post Notification'),
-    'stepNameTypeWooCommerce': __('WooCommerce Email'),
+    'stepNameTypeWooCommerce': __('WooCommerce'),
     'stepNameTemplate': __('Template'),
     'stepNameDesign': __('Design'),
     'stepNameSend': __('Send'),
@@ -243,8 +248,13 @@
     'delayDaysAfter': __('day(s) later'),
     'delayWeeksAfter': __('week(s) later'),
 
-    'subjectLine': __('Subject line'),
+    'subjectLabel': __('Subject'),
+    'subjectLine': __('Type newsletter subject'),
     'subjectLineTip': __("Be creative! It's the first thing that your subscribers see. Tempt them to open your email."),
+    'preheaderLabel': __('Preview text'),
+    'preheaderLine': __('Type preview text (usually displayed underneath the subject line in the inbox)'),
+    'preheaderLineTip1': __("This optional text will appear in your subscribers' inboxes, beside the subject line. Write something enticing!"),
+    'preheaderLineTip2': __("Max length is 250 characters, however, we recommend 80 characters on a single line."),
     'emptySubjectLineError': __('Please specify a subject'),
     'segments': __('Lists'),
     'segmentsTip': __('Subscribers in multiple lists will only receive one email.'),
@@ -377,14 +387,17 @@
     'whatsNew': __("What’s new"),
     'updateMailPoetNotice': __('[link]Update MailPoet[/link] to see the latest changes'),
 
-    'congratulationsSendSuccessHeader': __('Congratulations, your newsletter is being sent!'),
-    'congratulationsScheduleSuccessHeader': __('Congratulations, your newsletter is scheduled to be sent.'),
-    'congratulationsWooSuccessHeader': __('Congratulations, your WooCommerce email has been activated.'),
-    'congratulationsPostNotificationSuccessHeader': __('Congratulations, your Post Notification is now active.'),
-    'congratulationsWelcomeEmailSuccessHeader': __('Congratulations, your Welcome Email is now active.'),
-    'congratulationsSendFailHeader': __('Oops! We can’t send your newsletter 😕'),
+    'congratulationsSuccessHeader': __('Congratulations!'),
+    'congratulationsSendSuccessBody': __('Your newsletter is being sent!'),
+    'congratulationsScheduleSuccessBody': __('Your newsletter is scheduled to be sent.'),
+    'congratulationsWooSuccessBody': __('Your WooCommerce email has been activated.'),
+    'congratulationsPostNotificationSuccessBody': __('Your Post Notification is now active.'),
+    'congratulationsWelcomeEmailSuccessBody': __('Your Welcome Email is now active.'),
+
+    'congratulationsSendFailHeader': __('Oops! We can’t send your newsletter'),
     'congratulationsSendFailExplain': __('Rest assured, this is fairly common and is usually fixed quickly. [link]See our quick guide[/link] to help you solve this and get your website sending.'),
-    'congratulationsLoadingHeader': __('Congrats, you’re sending your first newsletter! We’re doing a quick verification to make sure everything works fine.'),
+    'congratulationsLoadingHeader': __('Verification'),
+    'congratulationsLoadingBody': __('Congrats, you’re sending your first newsletter! We’re doing a quick verification to make sure everything works fine.'),
 
     'congratulationsMSSPitchHeader': __('Your email has been sent!'),
     'congratulationsMSSPitchSubHeader': __('What’s next? Sign up to MailPoet Premium to see who clicked and opened your email. It’s entirely free for you!'),

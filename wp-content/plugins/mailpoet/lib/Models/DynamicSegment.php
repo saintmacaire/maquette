@@ -6,6 +6,7 @@ if (!defined('ABSPATH')) exit;
 
 
 use MailPoet\DynamicSegments\Filters\Filter;
+use MailPoet\Entities\SegmentEntity;
 use MailPoet\Models\Segment as MailPoetSegment;
 use MailPoet\WP\Functions as WPFunctions;
 
@@ -18,7 +19,7 @@ use MailPoet\WP\Functions as WPFunctions;
  */
 class DynamicSegment extends MailPoetSegment {
 
-  const TYPE_DYNAMIC = 'dynamic';
+  const TYPE_DYNAMIC = SegmentEntity::TYPE_DYNAMIC;
 
   /** @var Filter[] */
   private $filters = [];

@@ -6,18 +6,20 @@ if (!defined('ABSPATH')) exit;
 
 
 use MailPoet\DI\ContainerWrapper;
-use MailPoet\Listing\Handler;
+use MailPoet\Entities\SegmentEntity;
+use MailPoet\Listing\BulkActionController;
 use MailPoet\Models\Segment;
-use MailPoet\WP\Functions as WPFunctions;
 
 class BulkAction {
+  /** @var BulkActionController */
+  private $actionsController;
 
-  private $data = null;
-  private $wp;
+  /** @var array  */
+  private $data;
 
-  public function __construct($data) {
+  public function __construct(array $data) {
     $this->data = $data;
-    $this->wp = new WPFunctions;
+    $this->actionsController = ContainerWrapper::getInstance()->get(BulkActionController::class);
   }
 
   /**
@@ -42,23 +44,13 @@ class BulkAction {
    * @throws \Exception
    */
   private function applySegment($segment) {
-    if (!$segment
-      || in_array($segment['type'], [Segment::TYPE_DEFAULT, Segment::TYPE_WP_USERS, Segment::TYPE_WC_USERS], true)
+    if (is_bool($segment)
+      || in_array($segment['type'], [SegmentEntity::TYPE_DEFAULT, SegmentEntity::TYPE_WP_USERS, SegmentEntity::TYPE_WC_USERS], true)
     ) {
-      $bulkAction = new \MailPoet\Listing\BulkActionController(
-        ContainerWrapper::getInstance()->get(\MailPoet\Listing\BulkActionFactory::class),
-        new Handler()
-      );
-      return $bulkAction->apply('\MailPoet\Models\Subscriber', $this->data);
-    } else {
-      $handlers = $this->wp->applyFilters('mailpoet_subscribers_in_segment_apply_bulk_action_handlers', []);
-      foreach ($handlers as $handler) {
-        $meta = $handler->apply($segment, $this->data);
-        if ($meta) {
-          return $meta;
-        }
-      }
-      throw new \InvalidArgumentException('No handler found for segment');
+      return $this->actionsController->apply('\MailPoet\Models\Subscriber', $this->data);
+    } elseif (isset($segment['type']) && $segment['type'] === SegmentEntity::TYPE_DYNAMIC) {
+      return $this->actionsController->apply('\MailPoet\Models\SubscribersInDynamicSegment', $this->data);
     }
+    throw new \InvalidArgumentException('No handler found for segment');
   }
 }

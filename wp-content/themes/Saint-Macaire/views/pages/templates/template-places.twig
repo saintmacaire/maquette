@@ -17,12 +17,46 @@
             </div>
         </div>
         {% include 'partial/blocs/gals.twig' %}
-        {% include 'partial/blocs/place-events.twig' %}
-        <div class="col-10 m-a p-10 brd2 brd-c5 r20 mt-10 mb-10">
-            {{ post.get_field('map') }}
-        </div>
-    </div>   
-    
+        {# {% include 'partial/blocs/place-events.twig' %} #}
+        {% if post.adresse_ligne_1 or post.commune or post.tel or post.site_web or post.email %}
+            <div class="row p-10 mt-10">
+                <h2>Contact</h2>
+                {% if post.adresse_ligne_1 %}
+                
+                    <p class="col-12 col-md-3 t-a-center">{{ post.adresse_ligne_1 }}</p>
+                {% endif %}
+                {% if post.adresse_ligne_2 %}
+                    
+                    <p class="col-12 col-md-3 t-a-center">{{ post.adresse_ligne_2 }}</p>
+                {% endif %}
+                {% if post.cp %}
+                    <p class="col-12 col-md-3 t-a-center">
+                        {{ post.cp }}
+                        {% if post.commune %}
+                            - {{ post.commune }}
+                        {% endif %}
+                    </p>
+                {% endif %}
+                {% if post.tel %}
+                    <p class="col-12 col-md-3 t-a-center">
+                        <i class="fal fa-phone color3"></i> {{ post.tel }}
+                    </p>
+                {% endif %}
+                {% if post.site_web %}
+                    <p class="col-12 col-md-3 t-a-center">
+                        - <a href="{{ post.site_web }}"><i class="fal fa-globe color3"></i> site </a>
+                    </p>
+                {% endif %}
+                {% if post.email %}
+                    <p class="col-12 col-md-3 t-a-center">
+                        - <a href="mailto:{{ post.email }}"><i class="fal fa-enveloppe color3"></i> courriel</a>
+                    </p>
+                {% endif %}
+            </div>
+            <div class="col-10 m-a p-10 brd2 brd-c5 r20 mt-10 mb-10">
+                {{ post.get_field('map') }}
+            </div>
+        {% endif %}
+    </div>
 </div>
-
 {% endblock %}

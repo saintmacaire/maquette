@@ -4365,3 +4365,37 @@ Stack trace:
 [25-Sep-2020 15:56:24 UTC] PHP Notice: https://www.service-public.fr/abonnements/rss/actu-th-social-sante.rss?&#038;t=1601049381 is invalid XML, likely due to invalid characters. XML error: XML_ERR_NAME_REQUIRED at line 192, column 76 in /var/www/clients/client1/web28/web/wp-includes/class-simplepie.php on line 1543
 [25-Sep-2020 15:56:24 UTC] PHP Notice: https://www.service-public.fr/abonnements/rss/actu-th-papiers-citoyennete.rss?&t=1601049384 is invalid XML, likely due to invalid characters. XML error: XML_ERR_NAME_REQUIRED at line 192, column 76 in /var/www/clients/client1/web28/web/wp-includes/class-simplepie.php on line 1543
 [25-Sep-2020 15:56:24 UTC] PHP Notice: https://www.service-public.fr/abonnements/rss/actu-th-papiers-citoyennete.rss?&#038;t=1601049384 is invalid XML, likely due to invalid characters. XML error: XML_ERR_NAME_REQUIRED at line 192, column 76 in /var/www/clients/client1/web28/web/wp-includes/class-simplepie.php on line 1543
+[29-Sep-2020 18:47:25 UTC] PHP Notice:  Undefined index: t in /var/www/clients/client1/web28/web/wp-content/plugins/rss-feed-widget/inc/settings.php on line 59
+[29-Sep-2020 18:47:25 UTC] PHP Notice:  Undefined index: t in /var/www/clients/client1/web28/web/wp-content/plugins/rss-feed-widget/inc/settings.php on line 99
+[29-Sep-2020 18:47:25 UTC] PHP Notice:  Undefined index: t in /var/www/clients/client1/web28/web/wp-content/plugins/rss-feed-widget/inc/settings.php on line 188
+[29-Sep-2020 18:47:25 UTC] PHP Notice:  Undefined index: t in /var/www/clients/client1/web28/web/wp-content/plugins/rss-feed-widget/inc/settings.php on line 230
+[29-Sep-2020 18:47:25 UTC] PHP Notice:  Undefined index: t in /var/www/clients/client1/web28/web/wp-content/plugins/rss-feed-widget/inc/settings.php on line 288
+[29-Sep-2020 18:47:25 UTC] PHP Notice:  Undefined index: t in /var/www/clients/client1/web28/web/wp-content/plugins/rss-feed-widget/inc/settings.php on line 330
+[01-Oct-2020 22:26:02 UTC] PHP Fatal error:  Uncaught Twig\Error\SyntaxError: Unexpected "elseif" tag (expecting closing tag for the "block" tag defined near line 6). in /var/www/clients/client1/web28/web/wp-content/themes/Saint-Macaire/views/pages/templates/template-places.twig:67
+Stack trace:
+#0 /var/www/clients/client1/web28/web/wp-content/plugins/timber-library/vendor/twig/twig/src/TokenParser/BlockTokenParser.php(47): Twig\Parser->subparse(Array, true)
+#1 /var/www/clients/client1/web28/web/wp-content/plugins/timber-library/vendor/twig/twig/src/Parser.php(209): Twig\TokenParser\BlockTokenParser->parse(Object(Twig\Token))
+#2 /var/www/clients/client1/web28/web/wp-content/plugins/timber-library/vendor/twig/twig/src/Parser.php(122): Twig\Parser->subparse(NULL, false)
+#3 /var/www/clients/client1/web28/web/wp-content/plugins/timber-library/vendor/twig/twig/src/Environment.php(735): Twig\Parser->parse(Object(Twig\TokenStream))
+#4 /var/www/clients/client1/web28/web/wp-content/plugins/timber-library/vendor/twig/twig/src/Environment.php(793): Twig\Environment in /var/www/clients/client1/web28/web/wp-content/themes/Saint-Macaire/views/pages/templates/template-places.twig on line 67
+[01-Oct-2020 22:26:13 UTC] PHP Fatal error:  Uncaught Twig\Error\SyntaxError: Unexpected "elseif" tag (expecting closing tag for the "block" tag defined near line 6). in /var/www/clients/client1/web28/web/wp-content/themes/Saint-Macaire/views/pages/templates/template-places.twig:67
+Stack trace:
+#0 /var/www/clients/client1/web28/web/wp-content/plugins/timber-library/vendor/twig/twig/src/TokenParser/BlockTokenParser.php(47): Twig\Parser->subparse(Array, true)
+#1 /var/www/clients/client1/web28/web/wp-content/plugins/timber-library/vendor/twig/twig/src/Parser.php(209): Twig\TokenParser\BlockTokenParser->parse(Object(Twig\Token))
+#2 /var/www/clients/client1/web28/web/wp-content/plugins/timber-library/vendor/twig/twig/src/Parser.php(122): Twig\Parser->subparse(NULL, false)
+#3 /var/www/clients/client1/web28/web/wp-content/plugins/timber-library/vendor/twig/twig/src/Environment.php(735): Twig\Parser->parse(Object(Twig\TokenStream))
+#4 /var/www/clients/client1/web28/web/wp-content/plugins/timber-library/vendor/twig/twig/src/Environment.php(793): Twig\Environment in /var/www/clients/client1/web28/web/wp-content/themes/Saint-Macaire/views/pages/templates/template-places.twig on line 67
+[01-Oct-2020 22:28:11 UTC] PHP Fatal error:  Uncaught Twig\Error\SyntaxError: Unexpected "endif" tag (expecting closing tag for the "block" tag defined near line 6). in /var/www/clients/client1/web28/web/wp-content/themes/Saint-Macaire/views/pages/templates/template-places.twig:68
+Stack trace:
+#0 /var/www/clients/client1/web28/web/wp-content/plugins/timber-library/vendor/twig/twig/src/TokenParser/BlockTokenParser.php(47): Twig\Parser->subparse(Array, true)
+#1 /var/www/clients/client1/web28/web/wp-content/plugins/timber-library/vendor/twig/twig/src/Parser.php(209): Twig\TokenParser\BlockTokenParser->parse(Object(Twig\Token))
+#2 /var/www/clients/client1/web28/web/wp-content/plugins/timber-library/vendor/twig/twig/src/Parser.php(122): Twig\Parser->subparse(NULL, false)
+#3 /var/www/clients/client1/web28/web/wp-content/plugins/timber-library/vendor/twig/twig/src/Environment.php(735): Twig\Parser->parse(Object(Twig\TokenStream))
+#4 /var/www/clients/client1/web28/web/wp-content/plugins/timber-library/vendor/twig/twig/src/Environment.php(793): Twig\Environment- in /var/www/clients/client1/web28/web/wp-content/themes/Saint-Macaire/views/pages/templates/template-places.twig on line 68
+[01-Oct-2020 22:28:29 UTC] PHP Fatal error:  Uncaught Twig\Error\SyntaxError: Unexpected "endif" tag (expecting closing tag for the "block" tag defined near line 6). in /var/www/clients/client1/web28/web/wp-content/themes/Saint-Macaire/views/pages/templates/template-places.twig:68
+Stack trace:
+#0 /var/www/clients/client1/web28/web/wp-content/plugins/timber-library/vendor/twig/twig/src/TokenParser/BlockTokenParser.php(47): Twig\Parser->subparse(Array, true)
+#1 /var/www/clients/client1/web28/web/wp-content/plugins/timber-library/vendor/twig/twig/src/Parser.php(209): Twig\TokenParser\BlockTokenParser->parse(Object(Twig\Token))
+#2 /var/www/clients/client1/web28/web/wp-content/plugins/timber-library/vendor/twig/twig/src/Parser.php(122): Twig\Parser->subparse(NULL, false)
+#3 /var/www/clients/client1/web28/web/wp-content/plugins/timber-library/vendor/twig/twig/src/Environment.php(735): Twig\Parser->parse(Object(Twig\TokenStream))
+#4 /var/www/clients/client1/web28/web/wp-content/plugins/timber-library/vendor/twig/twig/src/Environment.php(793): Twig\Environment- in /var/www/clients/client1/web28/web/wp-content/themes/Saint-Macaire/views/pages/templates/template-places.twig on line 68

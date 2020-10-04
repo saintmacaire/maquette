@@ -96,9 +96,6 @@
                         <i class="fal fa-user-alt color3"></i> 
                         {% if post.get_field('organisateur').prenom_referent %}
                             {{ post.get_field('organisateur').prenom_referent }}
-                            {% if post.get_field('organisateur').nom_referent %}
-                            
-                            {% endif %}
                         {% endif %}
                         {% if post.get_field('organisateur').nom_referent %}
                             {{ post.get_field('organisateur').nom_referent }}    
@@ -106,14 +103,22 @@
                     {% endif %}
                     {% if post.get_field('organisateur').tel %}
                         <i class="fal fa-phone color3"></i>  {{ post.get_field('organisateur').tel }}
+                    {% elseif post.get_field('lieu').tel %}
+                        <i class="fal fa-phone color3"></i>  {{ post.get_field('lieu').tel }}                        
                     {% endif %}
                     {% if post.get_field('organisateur').site_web %}
                         - <i class="fal fa-globe color3"></i> 
-                        <a href="{{ post.get_field('organisateur').site_web }}">site</a>
+                        <a target="_blank" href="{{ post.get_field('organisateur').site_web }}">site</a> 
+                     {% elseif post.get_field('lieu').site_web %}
+                        - <i class="fal fa-globe color3"></i>  
+                        <a target="_blank" href="{{ post.get_field('lieu').site_web }}">site</a> 
                     {% endif %} 
                     {% if post.get_field('organisateur').email %}
                         - <i class="fal fa-envelope color3"></i> 
                         <a href="mailto:{{ post.get_field('organisateur').email }}">{{ post.get_field('organisateur').email }}</a>
+                    {% elseif post.get_field('lieu').email %}
+                        - <i class="fal fa-envelope color3"></i> 
+                        <a href="mailto:{{ post.get_field('lieu').email }}">{{ post.get_field('lieu').email }}</a> 
                     {% endif %}
                         
                     </p>
